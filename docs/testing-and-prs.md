@@ -16,6 +16,10 @@ Add each command with its implementation. When configurable content is introduce
 
 Use Node's built-in runner for small logic tests. Introduce Playwright when implementing repeatable browser tests; start with one Chromium smoke suite at desktop and mobile viewport sizes. Add other browsers only when supported browser requirements or bugs justify them. Keep tests independent; prefer roles and accessible names for selectors. Avoid arbitrary sleeps and assertions that merely repeat implementation details.
 
+## Second-brain notes
+
+Changes limited to `second-brain/` use a separate commit pushed directly to the latest `main`, without a PR. Keep these changes and commits out of PR branches. All other changes follow the review workflow below.
+
 ## Before a PR is ready
 
 1. Review the final diff and preserve unrelated work. Use Node 24 and npm 11.
