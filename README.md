@@ -67,7 +67,9 @@ See [Testing and pull requests](docs/testing-and-prs.md) for the shared test con
 
 ## Deployment
 
-Hosting hasn't been chosen yet. The production build is `dist/`; a static host should use `npm ci` to install dependencies, `npm run build` to build, and Node.js 24. `npm run preview` is for local checks, not a production server.
+GitHub Pages publishes at https://pnhalim.github.io/rkccleaners/. In repository Settings → Pages, set the source to **GitHub Actions** after merging the deployment workflow. The workflow checks formatting and builds PRs; pushes to `main` also deploy `dist/`.
+
+Vite uses `/rkccleaners/` as its base path. After `npm run build`, run `npm run preview` and open `/rkccleaners/` to check the production build locally. Do not publish the source folder directly: Tailwind and JavaScript need Vite's build step.
 
 ## Troubleshooting
 
