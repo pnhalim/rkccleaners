@@ -63,6 +63,8 @@ npm run preview
 
 Check desktop and mobile layouts, keyboard navigation, links, and scrolling. For animation changes, also check resizing and reduced motion. Include a short description of your changes, checks, and screenshots for visual changes. Have one teammate review before merging.
 
+See [Testing and pull requests](docs/testing-and-prs.md) for the shared test conventions, E2E requirements, screenshot handling, and Codex PR workflow. Automated test commands are planned there but are not installed yet. The PR template lives in `.github/pull_request_template.md`.
+
 ## Deployment
 
 Hosting hasn't been chosen yet. The production build is `dist/`; a static host should use `npm ci` to install dependencies, `npm run build` to build, and Node.js 24. `npm run preview` is for local checks, not a production server.

@@ -40,4 +40,4 @@ Changing a font name doesn't download it. For a custom font, add licensed font f
 
 ## Share an exploration
 
-Check desktop and mobile layouts, text contrast, keyboard focus, and navigation. Keep reduced-motion support intact. Include screenshots and a brief description of the direction in your PR, then ask a teammate to review. Run `npm run format:check` and `npm run build` before handing it off.
+Check desktop and mobile layouts, text contrast, keyboard focus, and navigation. Keep reduced-motion support intact. Include screenshots and a brief description of the direction in your PR, then ask a teammate to review. Run `npm run format:check` and `npm run build` before handing it off; see [testing and PR guidance](testing-and-prs.md) for browser verification.
