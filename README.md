@@ -67,9 +67,15 @@ See [Testing and pull requests](docs/testing-and-prs.md) for the shared test con
 
 ## Deployment
 
-GitHub Pages publishes at https://pnhalim.github.io/rkccleaners/. In repository Settings → Pages, set the source to **GitHub Actions** after merging the deployment workflow. The workflow checks formatting and builds PRs, saving `dist/` as a downloadable `site-build` artifact for seven days; pushes to `main` also deploy `dist/`. PR builds do not create a live preview URL.
+GitHub Pages publishes production at https://pnhalim.github.io/rkccleaners/.
 
-Vite uses `/rkccleaners/` as its base path. After `npm run build`, run `npm run preview` and open `/rkccleaners/` to check the production build locally. Do not publish the source folder directly: Tailwind and JavaScript need Vite's build step.
+- PRs run formatting, deployment tests, and a Vite build. Same-repository PRs get a preview at `/rkccleaners/previews/pr-<number>/`, linked in a bot comment after deployment. Fork PRs only run checks.
+- Pushes to `main` update production while preserving previews. Closing or merging a PR removes its preview.
+- A separate publisher on `main` stores the combined site on `gh-pages` and deploys it through GitHub Actions. PR code builds with a read-only token; the publisher copies compiled files without running them. Stale builds are skipped.
+
+In Settings → Pages, use **GitHub Actions** as the source. Keep the `github-pages` environment restricted to `main`. The publishing workflow must be merged before it can react to PR builds; rerun an existing PR’s build after setup. Actions uses short-lived internal artifacts to transfer files, but reviewers use the preview URL. Preview pages are public, just like production.
+
+Vite uses `/rkccleaners/` as its production base; PR builds override it with their preview path. Run `npm run build` and `npm run preview`, then open `/rkccleaners/` locally. Do not publish the source folder directly: Tailwind and JavaScript need Vite’s build step.
 
 ## Troubleshooting
 

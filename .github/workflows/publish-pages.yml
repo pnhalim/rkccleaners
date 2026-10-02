@@ -1,0 +1,140 @@
+name: Publish Pages
+
+on:
+  workflow_run:
+    workflows: [Build site]
+    types: [completed]
+  pull_request_target:
+    branches: [main]
+    types: [closed]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: github.event_name == 'pull_request_target' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      actions: read
+      pull-requests: write
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.target.outputs.url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+      - name: Select current build
+        id: target
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const repo = context.repo;
+            const run = context.payload.workflow_run;
+            let number = context.payload.pull_request?.number;
+            if (run) {
+              if (run.head_repository?.full_name !== `${repo.owner}/${repo.repo}`) return;
+              if (run.event === 'pull_request') {
+                number = run.pull_requests[0]?.number;
+                if (!number) {
+                  const { data } = await github.rest.repos.listPullRequestsAssociatedWithCommit({ ...repo, commit_sha: run.head_sha });
+                  number = data.find(pr => pr.state === 'open' && pr.head.ref === run.head_branch)?.number;
+                }
+                if (!number) return;
+                const { data: pr } = await github.rest.pulls.get({ ...repo, pull_number: number });
+                if (pr.state !== 'open' || pr.base.ref !== 'main' || pr.head.repo.full_name !== `${repo.owner}/${repo.repo}` || pr.head.sha !== run.head_sha) return;
+              } else {
+                if (!['push', 'workflow_dispatch'].includes(run.event) || run.head_branch !== 'main') return;
+                const { data: branch } = await github.rest.repos.getBranch({ ...repo, branch: 'main' });
+                if (branch.commit.sha !== run.head_sha) return;
+              }
+            }
+            core.setOutput('url', `https://pnhalim.github.io/rkccleaners/${number && run ? `previews/pr-${number}/` : ''}`);
+            core.setOutput('number', number || '');
+            core.setOutput('mode', run ? 'update' : 'remove');
+            core.setOutput('publish', 'true');
+            try {
+              await github.rest.git.getRef({ ...repo, ref: 'heads/gh-pages' });
+            } catch (error) {
+              if (error.status !== 404) throw error;
+              const { data: tree } = await github.rest.git.createTree({ ...repo, tree: [{ path: 'index.html', mode: '100644', type: 'blob', content: '<p>Site deployment pending.</p>' }] });
+              const { data: commit } = await github.rest.git.createCommit({ ...repo, message: 'Initialize Pages snapshot', tree: tree.sha, parents: [] });
+              await github.rest.git.createRef({ ...repo, ref: 'refs/heads/gh-pages', sha: commit.sha });
+            }
+      - uses: actions/download-artifact@v4
+        if: steps.target.outputs.publish == 'true' && steps.target.outputs.mode == 'update'
+        with:
+          name: pages-input
+          path: build-output
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ github.token }}
+      - uses: actions/checkout@v4
+        if: steps.target.outputs.publish == 'true'
+        with:
+          ref: gh-pages
+          path: published
+      - name: Update snapshot
+        if: steps.target.outputs.publish == 'true'
+        env:
+          PR_NUMBER: ${{ steps.target.outputs.number }}
+          PUBLISH_MODE: ${{ steps.target.outputs.mode }}
+        run: node scripts/compose-pages.mjs published build-output
+      - name: Save snapshot
+        if: steps.target.outputs.publish == 'true'
+        working-directory: published
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add --all
+          if ! git diff --cached --quiet; then
+            git commit -m 'Update Pages snapshot'
+            git push origin HEAD:gh-pages
+          fi
+      - uses: actions/configure-pages@v5
+        if: steps.target.outputs.publish == 'true'
+      - uses: actions/upload-pages-artifact@v3
+        if: steps.target.outputs.publish == 'true'
+        with:
+          path: published
+      - uses: actions/deploy-pages@v4
+        if: steps.target.outputs.publish == 'true'
+        id: deploy
+      - name: Reviewer link
+        if: steps.target.outputs.publish == 'true'
+        env:
+          PR_NUMBER: ${{ steps.target.outputs.number }}
+          PUBLISH_MODE: ${{ steps.target.outputs.mode }}
+        run: |
+          if [ -n "$PR_NUMBER" ] && [ "$PUBLISH_MODE" = update ]; then
+            echo "Preview: https://pnhalim.github.io/rkccleaners/previews/pr-$PR_NUMBER/" >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Post reviewer link
+        if: steps.target.outputs.publish == 'true' && steps.target.outputs.number != ''
+        uses: actions/github-script@v7
+        env:
+          PR_NUMBER: ${{ steps.target.outputs.number }}
+          PUBLISH_MODE: ${{ steps.target.outputs.mode }}
+          PREVIEW_URL: ${{ steps.target.outputs.url }}
+        with:
+          script: |
+            const issue_number = Number(process.env.PR_NUMBER);
+            const marker = '<!-- pages-preview -->';
+            const body = process.env.PUBLISH_MODE === 'remove'
+              ? `${marker}\nPreview removed because this PR is closed.`
+              : `${marker}\n[Open website preview](${process.env.PREVIEW_URL}) · build ${context.payload.workflow_run.head_sha.slice(0, 7)}`;
+            const comments = await github.paginate(github.rest.issues.listComments, { ...context.repo, issue_number });
+            const existing = comments.find(comment => comment.user.login === 'github-actions[bot]' && comment.body.includes(marker));
+            if (existing) await github.rest.issues.updateComment({ ...context.repo, comment_id: existing.id, body });
+            else await github.rest.issues.createComment({ ...context.repo, issue_number, body });
