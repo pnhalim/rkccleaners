@@ -42,12 +42,12 @@ Make small changes at a time, reduce complexity, and verify the result.
 - Save a note when you discover a useful gotcha, verify a fix, or make a decision whose reasoning is not obvious. Skip routine task logs and generic advice.
 - Keep notes short, in Markdown files named by topic. Include the date, what was learned, why it matters, and relevant file paths or verification steps.
 - Update an existing note rather than duplicating it; correct or remove stale guidance. Current code and project instructions take precedence over notes.
-- Never store secrets or private customer information. Include note changes in the normal code review.
+- Never store secrets or private customer information. Commit every `second-brain/` update separately on the latest `main` and immediately push it directly without a PR; do not leave updates pending locally. Keep these commits out of feature and documentation PR branches; never push unrelated changes to `main`.
 
 ## Code review
 
 - Review your own diff before handing it off; remove unused code and unnecessary comments.
-- Use a branch and pull request for changes; have at least one teammate review before merging.
+- Use a branch and pull request for changes; have at least one teammate review before merging. Changes limited to `second-brain/` are the direct-push exception described above.
 - Name branches `<type>/<short-description>` using lowercase and hyphens. Use `feat/` for features, `fix/` for bugs, `docs/` for documentation, and `chore/` for maintenance (for example, `feat/contact-section` or `fix/mobile-menu`). Follow any branch prefix required by your tool.
 - Keep PRs small. Concisely explain what changed and how it was checked; include screenshots for visual changes.
 - Every PR must have a descriptive title and a completed description covering the problem, resulting change, and actual verification. Use `.github/pull_request_template.md`, remove unused sections, and verify the published description is present. Update it when the scope changes.

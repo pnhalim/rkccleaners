@@ -7,6 +7,8 @@ description: Prepare RKC Cleaners changes for PR review with project checks, bro
 
 Read `AGENTS.md` and `docs/testing-and-prs.md` from the repository root. Use `.github/pull_request_template.md` for the description; those files own the requirements.
 
+Exclude `second-brain/` changes and second-brain-only commits from PRs. Publish those notes in a separate commit directly to the latest `main`, as described in `AGENTS.md`; never include unrelated changes in that push.
+
 Inspect the working tree and final diff before choosing checks. Preserve unrelated changes and include only task changes in any commit. Inspect `package.json` for available commands; the documented future test commands may not exist yet.
 
 Run the required checks for the change type. For site changes, verify the freshly built production site at the documented viewports using the E2E runner if installed and available browser tools for visual inspection. Without a runner, report browser verification accurately. Investigate failures before marking the PR ready; keep unresolved work draft.

@@ -1,0 +1,40 @@
+name: Build site
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npm run format:check
+      - run: npm run test:pages
+      - name: Build site
+        env:
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          if [ -n "$PR_NUMBER" ]; then
+            npm run build -- --base "/rkccleaners/previews/pr-$PR_NUMBER/"
+          else
+            npm run build
+          fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pages-input
+          path: dist
+          retention-days: 1

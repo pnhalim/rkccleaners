@@ -4,7 +4,7 @@ Keep checks proportional to this small static site. Test behavior that can break
 
 ## Current tooling and conventions
 
-Today, `package.json` provides `npm run format:check`, `npm run build`, and `npm run preview`. There is no automated test runner, content configuration, or CI test workflow yet. The following test layout and commands are conventions for when those features are introduced, not commands to run today:
+Today, `package.json` provides `npm run format:check`, `npm run build`, and `npm run preview`. `npm run test:pages` uses Node’s built-in runner to check preview preservation, cleanup, and safe file copying. GitHub Actions checks formatting, these tests, and the build on PRs. There is no browser E2E runner or content configuration yet. The following test layout and commands are conventions for when those features are introduced, not commands to run today:
 
 | Layer                       | Location                      | Proposed command                                    | What it protects                                                                                         |
 | --------------------------- | ----------------------------- | --------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
@@ -15,6 +15,10 @@ Today, `package.json` provides `npm run format:check`, `npm run build`, and `npm
 Add each command with its implementation. When configurable content is introduced, run validation during the build so invalid content cannot be published. Test valid and invalid inputs and helpful error messages. Keep core content in generated HTML so it remains available without JavaScript.
 
 Use Node's built-in runner for small logic tests. Introduce Playwright when implementing repeatable browser tests; start with one Chromium smoke suite at desktop and mobile viewport sizes. Add other browsers only when supported browser requirements or bugs justify them. Keep tests independent; prefer roles and accessible names for selectors. Avoid arbitrary sleeps and assertions that merely repeat implementation details.
+
+## Second-brain notes
+
+Immediately commit and push every `second-brain/` update separately to the latest `main`, without a PR; do not leave updates pending locally. Keep these changes and commits out of PR branches. All other changes follow the review workflow below.
 
 ## Before a PR is ready
 
