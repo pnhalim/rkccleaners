@@ -1,0 +1,9 @@
+@import 'tailwindcss';
+@import './brand.css';
+
+@layer base {
+  a:focus-visible {
+    outline: 3px solid var(--color-focus);
+    outline-offset: 5px;
+  }
+}
