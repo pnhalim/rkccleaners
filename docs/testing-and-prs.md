@@ -4,7 +4,7 @@ Keep checks proportional to this small static site. Test behavior that can break
 
 ## Current tooling and conventions
 
-Today, `package.json` provides `npm run format:check`, `npm run build`, and `npm run preview`. There is no automated test runner, content configuration, or CI test workflow yet. The following test layout and commands are conventions for when those features are introduced, not commands to run today:
+Today, `package.json` provides `npm run format:check`, `npm run build`, and `npm run preview`. `npm run test:pages` uses Node’s built-in runner to check preview preservation, cleanup, and safe file copying. GitHub Actions checks formatting, these tests, and the build on PRs. There is no browser E2E runner or content configuration yet. The following test layout and commands are conventions for when those features are introduced, not commands to run today:
 
 | Layer                       | Location                      | Proposed command                                    | What it protects                                                                                         |
 | --------------------------- | ----------------------------- | --------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
