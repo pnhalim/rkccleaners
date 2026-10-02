@@ -41,6 +41,8 @@ Store temporary screenshots, reports, and traces under ignored `artifacts/`, `pl
 
 ## PR descriptions and automation
 
+Keep the Change section to one purpose sentence and 1–3 short bullets covering the main changes. Group related changes; omit file inventories, implementation narration, and repeated rationale. Combine verification checks with the same status when clear. Add detail only for material risks or decisions a reviewer needs to make. When updating an existing PR, preserve the author's wording and change only what the task or scope requires.
+
 Use consistent status labels in verification bullets: `✅ Passed`, `❌ Failed`, `⏭️ Not run` (with a reason), and `➖ Not applicable`. Keep the words alongside the emoji so the status remains clear.
 
 Every PR needs a descriptive title and a completed description; a branch push alone does not create a PR or supply its description. Use `.github/pull_request_template.md`. Lead with the concrete problem and resulting behavior; include only relevant checks, screenshot evidence, and limitations. Remove inapplicable placeholders. Report each check as passed, failed, not run (with reason), or not applicable. Never infer success from a screenshot or an unexecuted command. After creating or updating a PR, read it back to confirm the description was saved. Update the title and description whenever the scope changes.

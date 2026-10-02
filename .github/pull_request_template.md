@@ -1,6 +1,6 @@
 ## Change
 
-<!-- Describe the problem and resulting behavior. -->
+<!-- One sentence for the purpose, then 1–3 short bullets for the main changes. Group related changes; skip file inventories and implementation narration. Add detail only for material risks or reviewer decisions. -->
 
 ## Verification
 
