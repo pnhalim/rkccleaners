@@ -1,15 +1,15 @@
 @theme {
-  --color-page: oklch(98.5% 0.001 106.423);
+  --color-page: #fcf8fa;
   --color-surface: #fff;
-  --color-ink: oklch(21.6% 0.006 56.043);
-  --color-muted: oklch(44.4% 0.011 73.639);
-  --color-line: oklch(92.3% 0.003 48.717);
-  --color-brand: oklch(43.7% 0.078 188.216);
-  --color-brand-hover: oklch(51.1% 0.096 186.391);
-  --color-brand-deep: oklch(38.6% 0.063 188.416);
+  --color-ink: #291c28;
+  --color-muted: #6b5566;
+  --color-line: #e7dce3;
+  --color-brand: #7b365e;
+  --color-brand-hover: #91446f;
+  --color-brand-deep: #53243f;
   --color-on-brand: #fff;
-  --color-on-brand-muted: oklch(95.3% 0.051 180.801);
-  --color-focus: #0d9488;
+  --color-on-brand-muted: #f5dce9;
+  --color-focus: #a0447c;
 
   --font-body:
     -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
