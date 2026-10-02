@@ -13,6 +13,13 @@
 - Desktop / mobile / keyboard:
 - Scrolling / resizing / reduced motion (animation changes):
 
+## Build and preview
+
+<!-- Add the latest GitHub Actions build run and live preview links after the PR is created. Label unavailable or pending previews accurately; do not wait for builds unless requested. -->
+
+- [Build run](URL)
+- [Website preview](URL)
+
 ## Visual evidence
 
 <!-- For visual changes, attach inspected desktop and mobile screenshots with route, viewport, and state. Use reviewer-accessible URLs; remove this section for nonvisual changes. -->
