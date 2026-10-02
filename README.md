@@ -67,7 +67,7 @@ See [Testing and pull requests](docs/testing-and-prs.md) for the shared test con
 
 ## Deployment
 
-GitHub Pages publishes at https://pnhalim.github.io/rkccleaners/. In repository Settings → Pages, set the source to **GitHub Actions** after merging the deployment workflow. The workflow checks formatting and builds PRs; pushes to `main` also deploy `dist/`.
+GitHub Pages publishes at https://pnhalim.github.io/rkccleaners/. In repository Settings → Pages, set the source to **GitHub Actions** after merging the deployment workflow. The workflow checks formatting and builds PRs, saving `dist/` as a downloadable `site-build` artifact for seven days; pushes to `main` also deploy `dist/`. PR builds do not create a live preview URL.
 
 Vite uses `/rkccleaners/` as its base path. After `npm run build`, run `npm run preview` and open `/rkccleaners/` to check the production build locally. Do not publish the source folder directly: Tailwind and JavaScript need Vite's build step.
 
