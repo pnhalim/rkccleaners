@@ -4,7 +4,7 @@
 
 ## Verification
 
-<!-- Record actual results: passed, failed, not run (why), or not applicable. -->
+<!-- Prefix each bullet with ✅ Passed, ❌ Failed, ⏭️ Not run (why), or ➖ Not applicable. Keep the text label; record only actual results. -->
 
 - Formatting:
 - Production build:

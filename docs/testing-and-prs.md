@@ -41,6 +41,8 @@ Store temporary screenshots, reports, and traces under ignored `artifacts/`, `pl
 
 ## PR descriptions and automation
 
+Use consistent status labels in verification bullets: `✅ Passed`, `❌ Failed`, `⏭️ Not run` (with a reason), and `➖ Not applicable`. Keep the words alongside the emoji so the status remains clear.
+
 Every PR needs a descriptive title and a completed description; a branch push alone does not create a PR or supply its description. Use `.github/pull_request_template.md`. Lead with the concrete problem and resulting behavior; include only relevant checks, screenshot evidence, and limitations. Remove inapplicable placeholders. Report each check as passed, failed, not run (with reason), or not applicable. Never infer success from a screenshot or an unexecuted command. After creating or updating a PR, read it back to confirm the description was saved. Update the title and description whenever the scope changes.
 
 Codex can follow this workflow, run available commands, use connected browser tools, capture and inspect screenshots, and prepare a title and description. Ask: "Use $pr-ready to prepare this change for review." A skill supplies instructions; it does not install runners, schedule execution, or provide GitHub credentials. See the [official skills documentation](https://learn.chatgpt.com/docs/build-skills).
