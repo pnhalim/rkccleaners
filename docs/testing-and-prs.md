@@ -18,7 +18,7 @@ Use Node's built-in runner for small logic tests. Introduce Playwright when impl
 
 ## Second-brain notes
 
-Changes limited to `second-brain/` use a separate commit pushed directly to the latest `main`, without a PR. Keep these changes and commits out of PR branches. All other changes follow the review workflow below.
+Immediately commit and push every `second-brain/` update separately to the latest `main`, without a PR; do not leave updates pending locally. Keep these changes and commits out of PR branches. All other changes follow the review workflow below.
 
 ## Before a PR is ready
 
