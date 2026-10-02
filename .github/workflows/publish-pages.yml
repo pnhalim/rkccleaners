@@ -44,6 +44,7 @@ jobs:
             const repo = context.repo;
             const run = context.payload.workflow_run;
             let number = context.payload.pull_request?.number;
+            if (!run && context.payload.pull_request.head.repo?.full_name !== `${repo.owner}/${repo.repo}`) return;
             if (run) {
               if (run.head_repository?.full_name !== `${repo.owner}/${repo.repo}`) return;
               if (run.event === 'pull_request') {
