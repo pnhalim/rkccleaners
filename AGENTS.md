@@ -32,6 +32,9 @@ Make small changes at a time, reduce complexity, and verify the result.
 - For animation changes, check scrolling, resizing, and reduced-motion behavior.
 - Add tests when they protect meaningful behavior; skip tests for trivial content or styling changes.
 - Report what was checked and anything that could not be verified.
+- Follow `docs/testing-and-prs.md` for test naming, required PR checks, browser evidence, and PR descriptions. It distinguishes existing commands from planned test infrastructure.
+- For site changes, complete E2E verification against the production build before marking a PR ready for review. For documentation-only changes, E2E and screenshots are not applicable.
+- Use the project `pr-ready` skill in `.agents/skills/pr-ready/SKILL.md` when preparing a PR or its review evidence.
 
 ## Shared learnings
 
@@ -47,6 +50,7 @@ Make small changes at a time, reduce complexity, and verify the result.
 - Use a branch and pull request for changes; have at least one teammate review before merging.
 - Name branches `<type>/<short-description>` using lowercase and hyphens. Use `feat/` for features, `fix/` for bugs, `docs/` for documentation, and `chore/` for maintenance (for example, `feat/contact-section` or `fix/mobile-menu`). Follow any branch prefix required by your tool.
 - Keep PRs small. Concisely explain what changed and how it was checked; include screenshots for visual changes.
+- Every PR must have a descriptive title and a completed description covering the problem, resulting change, and actual verification. Use `.github/pull_request_template.md`, remove unused sections, and verify the published description is present. Update it when the scope changes.
 - Review for correctness, readability, accessibility, and unnecessary complexity.
 - Prioritize actionable issues; distinguish required fixes from optional suggestions.
 - Do not merge or deploy unless explicitly asked.
