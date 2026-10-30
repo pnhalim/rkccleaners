@@ -44,7 +44,7 @@ Use `npm install <package>` (or `npm install -D <package>` for development tools
 - `src/main.js`: JavaScript interactions and GSAP animations.
 - `vite.config.js`: Vite and Tailwind integration.
 - `public/`: static assets served unchanged, such as the favicon.
-- `second-brain/`: short, reusable project learnings.
+- `second-brain/`: short, reusable project learnings by topic, with open work tracked in `action-items.md`.
 - `AGENTS.md`: coding and review conventions, also used by Claude.
 
 The starter contains a simple coming-soon page. Replace its text with approved business information as we iterate. Content works without JavaScript; scroll animations respect the visitor's reduced-motion preference.

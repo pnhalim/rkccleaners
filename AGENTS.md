@@ -35,10 +35,12 @@ Make small changes at a time, reduce complexity, and verify the result.
 - Follow `docs/testing-and-prs.md` for test naming, required PR checks, browser evidence, and PR descriptions. It distinguishes existing commands from planned test infrastructure.
 - For site changes, complete E2E verification against the production build before marking a PR ready for review. For documentation-only changes, E2E and screenshots are not applicable.
 - Use the project `pr-ready` skill in `.agents/skills/pr-ready/SKILL.md` when preparing a PR or its review evidence.
+- Project skills live in `.agents/skills/`, with copies in `.claude/skills/` because Claude Code only reads skills from there. Keep the copies identical when adding or editing a skill.
 
 ## Shared learnings
 
 - Use `second-brain/` for project-specific learnings that will help future tasks. Check relevant notes before starting work and confirm they still match the code.
+- Topic notes hold information only. Track open work and who is doing it in `second-brain/action-items.md`, linking each item to the note that explains it instead of repeating that information. Remove an item when it's done, and move anything learned into a topic note.
 - Save a note when you discover a useful gotcha, verify a fix, or make a decision whose reasoning is not obvious. Skip routine task logs and generic advice.
 - Keep notes short, in Markdown files named by topic. Include the date, what was learned, why it matters, and relevant file paths or verification steps.
 - Update an existing note rather than duplicating it; correct or remove stale guidance. Current code and project instructions take precedence over notes.
