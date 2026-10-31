@@ -10,7 +10,7 @@ videoUrl.searchParams.set('origin', window.location.origin);
 videoFrame.src = videoUrl.href;
 
 function setVideoSpeed(event) {
-  event.target.setPlaybackRate(0.75);
+  event.target.setPlaybackRate(1);
 }
 
 function initializePlayer() {
