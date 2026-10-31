@@ -78,6 +78,39 @@
     );
   pointer-events: none;
 }
+@keyframes grain-shift {
+  0%,
+  100% {
+    background-position:
+      0 0,
+      0 0;
+  }
+  20% {
+    background-position:
+      -37px 23px,
+      0 0;
+  }
+  40% {
+    background-position:
+      19px -47px,
+      0 0;
+  }
+  60% {
+    background-position:
+      -61px -13px,
+      0 0;
+  }
+  80% {
+    background-position:
+      43px 59px,
+      0 0;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .video-wrap::after {
+    animation: grain-shift 0.5s steps(1, end) infinite;
+  }
+}
 .about-blurb {
   z-index: 1;
   position: absolute;
