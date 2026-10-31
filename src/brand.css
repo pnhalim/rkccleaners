@@ -1,6 +1,5 @@
 @theme {
   --color-cinema: #000;
-  --color-video-wash: rgb(225 242 255 / 6%);
   --color-page: #f3f1ed;
   --color-surface: #fff;
   --color-header-glass: rgb(220 240 255 / 42%);
@@ -15,10 +14,10 @@
   --color-on-brand-muted: #fce8e9;
   --color-focus: #b4232c;
 
-  --font-body: 'Poppins', sans-serif;
+  --font-body: 'Outfit', sans-serif;
   --font-heading: var(--font-body);
   --font-editorial: var(--font-body);
 
   --radius-button: 9999px;
-  --radius-panel: 1.5rem;
+  --radius-panel: 3rem;
 }
