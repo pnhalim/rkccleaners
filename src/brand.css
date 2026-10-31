@@ -1,5 +1,6 @@
 @theme {
   --color-cinema: #000;
+  --color-video-wash: rgb(225 242 255 / 6%);
   --color-page: #f3f1ed;
   --color-surface: #fff;
   --color-header-glass: rgb(220 240 255 / 42%);
