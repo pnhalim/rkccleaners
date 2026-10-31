@@ -9,7 +9,7 @@
     />
     <title>Reviews | RKC Cleaners</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <script type="module" src="/src/main.js"></script>
+    <script type="module" src="/src/reviews.js"></script>
   </head>
   <body class="bg-page font-body text-ink antialiased">
     <a
@@ -53,22 +53,274 @@
         <p class="mt-6 max-w-xl text-lg leading-relaxed text-muted">
           Hear from the people who trust RKC Cleaners with their laundry.
         </p>
-      </section>
-      <section
-        id="customer-reviews"
-        class="scroll-mt-8 border-t border-line py-20"
-        aria-labelledby="customer-reviews-title"
-        data-reveal
-      >
-        <h2
-          id="customer-reviews-title"
-          class="font-heading text-3xl font-semibold tracking-tight"
-        >
-          Customer reviews
-        </h2>
-        <p class="mt-5 max-w-2xl text-lg leading-relaxed text-muted">
-          We're gathering reviews from our customers. They'll appear here soon.
+        <p class="mt-4 text-sm text-muted">
+          Design sketches with placeholder reviews. Replace them with real
+          customer reviews before launch.
         </p>
+      </section>
+
+      <section
+        id="review-strip"
+        class="scroll-mt-8 border-t border-line py-20"
+        aria-labelledby="review-strip-title"
+      >
+        <p class="text-sm font-semibold uppercase tracking-widest text-brand">
+          Sketch 1
+        </p>
+        <h2
+          id="review-strip-title"
+          class="mt-3 font-heading text-3xl font-semibold tracking-tight"
+        >
+          Review strip
+        </h2>
+        <p class="mt-3 text-muted">Scroll sideways through boxed reviews.</p>
+        <ul
+          class="review-strip relative mt-10 flex snap-x snap-mandatory gap-6 overflow-x-auto pb-6"
+          tabindex="0"
+          aria-label="Customer reviews"
+        >
+          <li
+            class="flex w-[min(22rem,80vw)] shrink-0 snap-start flex-col rounded-panel border border-line bg-surface p-8"
+          >
+            <p class="text-brand">
+              <span aria-hidden="true">★★★★★</span>
+              <span class="sr-only">Rated 5 out of 5</span>
+            </p>
+            <blockquote class="mt-4 grow text-lg leading-relaxed">
+              Our linens come back crisp, folded and on time. Housekeeping
+              hasn't had to chase a single delivery.
+            </blockquote>
+            <p class="mt-6 font-semibold">Maria L.</p>
+            <p class="text-sm text-muted">Hotel operations manager</p>
+          </li>
+          <li
+            class="flex w-[min(22rem,80vw)] shrink-0 snap-start flex-col rounded-panel border border-line bg-surface p-8"
+          >
+            <p class="text-brand">
+              <span aria-hidden="true">★★★★★</span>
+              <span class="sr-only">Rated 5 out of 5</span>
+            </p>
+            <blockquote class="mt-4 grow text-lg leading-relaxed">
+              They worked around our weekend rush and never missed a pickup.
+            </blockquote>
+            <p class="mt-6 font-semibold">James P.</p>
+            <p class="text-sm text-muted">Restaurant owner</p>
+          </li>
+          <li
+            class="flex w-[min(22rem,80vw)] shrink-0 snap-start flex-col rounded-panel border border-line bg-surface p-8"
+          >
+            <p class="text-brand">
+              <span aria-hidden="true">★★★★★</span>
+              <span class="sr-only">Rated 5 out of 5</span>
+            </p>
+            <blockquote class="mt-4 grow text-lg leading-relaxed">
+              Our uniforms stay looking new for months longer than they did with
+              our old service.
+            </blockquote>
+            <p class="mt-6 font-semibold">Priya S.</p>
+            <p class="text-sm text-muted">Clinic manager</p>
+          </li>
+          <li
+            class="flex w-[min(22rem,80vw)] shrink-0 snap-start flex-col rounded-panel border border-line bg-surface p-8"
+          >
+            <p class="text-brand">
+              <span aria-hidden="true">★★★★★</span>
+              <span class="sr-only">Rated 5 out of 5</span>
+            </p>
+            <blockquote class="mt-4 grow text-lg leading-relaxed">
+              Clear pricing, friendly drivers, and fast answers when we need
+              extra capacity.
+            </blockquote>
+            <p class="mt-6 font-semibold">Tom R.</p>
+            <p class="text-sm text-muted">Property manager</p>
+          </li>
+          <li
+            class="flex w-[min(22rem,80vw)] shrink-0 snap-start flex-col rounded-panel border border-line bg-surface p-8"
+          >
+            <p class="text-brand">
+              <span aria-hidden="true">★★★★★</span>
+              <span class="sr-only">Rated 5 out of 5</span>
+            </p>
+            <blockquote class="mt-4 grow text-lg leading-relaxed">
+              Stains we'd given up on came out. The team clearly takes care with
+              every piece.
+            </blockquote>
+            <p class="mt-6 font-semibold">Elena K.</p>
+            <p class="text-sm text-muted">Spa director</p>
+          </li>
+          <li
+            class="flex w-[min(22rem,80vw)] shrink-0 snap-start flex-col rounded-panel border border-line bg-surface p-8"
+          >
+            <p class="text-brand">
+              <span aria-hidden="true">★★★★★</span>
+              <span class="sr-only">Rated 5 out of 5</span>
+            </p>
+            <blockquote class="mt-4 grow text-lg leading-relaxed">
+              Switching took one phone call. They handled the rest.
+            </blockquote>
+            <p class="mt-6 font-semibold">Marcus D.</p>
+            <p class="text-sm text-muted">Fitness studio owner</p>
+          </li>
+        </ul>
+      </section>
+
+      <section
+        id="review-bubbles"
+        class="scroll-mt-8 border-t border-line py-20"
+        aria-labelledby="review-bubbles-title"
+      >
+        <p class="text-sm font-semibold uppercase tracking-widest text-brand">
+          Sketch 2
+        </p>
+        <h2
+          id="review-bubbles-title"
+          class="mt-3 font-heading text-3xl font-semibold tracking-tight"
+        >
+          Review bubbles
+        </h2>
+        <p class="mt-3 text-muted">Pick a bubble to read that review.</p>
+        <div
+          class="mt-12 grid items-center gap-12 md:grid-cols-[22rem_1fr] md:gap-16"
+        >
+          <div class="bubble-ring">
+            <button
+              class="review-bubble"
+              type="button"
+              aria-expanded="true"
+              aria-controls="bubble-review-angela"
+            >
+              <span class="review-bubble-face" aria-hidden="true">AM</span>
+              <span class="review-bubble-name">Angela M.</span>
+            </button>
+            <button
+              class="review-bubble"
+              type="button"
+              aria-expanded="false"
+              aria-controls="bubble-review-derek"
+            >
+              <span class="review-bubble-face" aria-hidden="true">DW</span>
+              <span class="review-bubble-name">Derek W.</span>
+            </button>
+            <button
+              class="review-bubble"
+              type="button"
+              aria-expanded="false"
+              aria-controls="bubble-review-sofia"
+            >
+              <span class="review-bubble-face" aria-hidden="true">SR</span>
+              <span class="review-bubble-name">Sofia R.</span>
+            </button>
+          </div>
+          <div>
+            <figure
+              id="bubble-review-angela"
+              class="bubble-review rounded-panel border border-line bg-surface p-8 sm:p-10"
+            >
+              <blockquote class="text-xl leading-relaxed sm:text-2xl">
+                RKC treats our towels and sheets like their own. Guests notice
+                the difference, and so do our reviews.
+              </blockquote>
+              <figcaption class="mt-6 text-muted">
+                <span class="font-semibold text-ink">Angela M.</span>, boutique
+                hotel owner
+              </figcaption>
+            </figure>
+            <figure
+              id="bubble-review-derek"
+              class="bubble-review rounded-panel border border-line bg-surface p-8 sm:p-10"
+              hidden
+            >
+              <blockquote class="text-xl leading-relaxed sm:text-2xl">
+                After big events we need tablecloths turned around overnight.
+                They have never let us down.
+              </blockquote>
+              <figcaption class="mt-6 text-muted">
+                <span class="font-semibold text-ink">Derek W.</span>, banquet
+                hall manager
+              </figcaption>
+            </figure>
+            <figure
+              id="bubble-review-sofia"
+              class="bubble-review rounded-panel border border-line bg-surface p-8 sm:p-10"
+              hidden
+            >
+              <blockquote class="text-xl leading-relaxed sm:text-2xl">
+                Reliable pickups, fair prices, and real people who answer the
+                phone.
+              </blockquote>
+              <figcaption class="mt-6 text-muted">
+                <span class="font-semibold text-ink">Sofia R.</span>, salon
+                owner
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="review-scroll"
+        class="mb-20 scroll-mt-8 rounded-panel bg-brand-deep px-6 py-20 text-on-brand sm:px-12"
+        aria-labelledby="review-scroll-title"
+      >
+        <p
+          class="text-sm font-semibold uppercase tracking-widest text-on-brand-muted"
+        >
+          Sketch 3
+        </p>
+        <h2
+          id="review-scroll-title"
+          class="mt-3 font-heading text-3xl font-semibold tracking-tight"
+        >
+          Scroll-in comments
+        </h2>
+        <p class="mt-3 text-on-brand-muted">
+          A homepage band where reviews pop in and out as you scroll.
+        </p>
+        <ul class="scroll-comments">
+          <li>
+            <figure class="scroll-comment">
+              <blockquote class="scroll-comment-box">
+                Every delivery is counted, folded and labeled exactly how our
+                housekeepers like it.
+              </blockquote>
+              <figcaption class="scroll-comment-name">
+                Nina H., executive housekeeper
+              </figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure class="scroll-comment">
+              <blockquote class="scroll-comment-box">
+                We've used three laundry services in ten years. RKC is the first
+                one we haven't had to manage.
+              </blockquote>
+              <figcaption class="scroll-comment-name">
+                Robert C., general manager
+              </figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure class="scroll-comment">
+              <blockquote class="scroll-comment-box">
+                Quick turnaround, careful handling, and no surprises on the
+                invoice.
+              </blockquote>
+              <figcaption class="scroll-comment-name">
+                Leah T., office manager
+              </figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure class="scroll-comment">
+              <blockquote class="scroll-comment-box">
+                They feel like part of our team, not a vendor.
+              </blockquote>
+              <figcaption class="scroll-comment-name">
+                Carlos V., hotel owner
+              </figcaption>
+            </figure>
+          </li>
+        </ul>
       </section>
       <section
         id="share"
