@@ -84,7 +84,7 @@ media.add('(prefers-reduced-motion: no-preference)', () => {
   opening.append(bubbles);
   const video = opening.querySelector('iframe');
   const text = opening.querySelectorAll(
-    '.site-header, .about-blurb, .text-link, .down-link',
+    '.site-header, .about-blurb, .text-link',
   );
   const entranceDelays = gsap.utils.shuffle([0, 0.14, 0.33, 0.51, 0.76, 0.95]);
   const timeline = gsap.timeline({ onComplete: () => bubbles.remove() });

@@ -36,12 +36,12 @@
 .site-header {
   --header-detail-width: 0px;
   --header-detail-opacity: 0;
-  --header-logo-gap: 0px;
   position: fixed;
   top: 24px;
-  left: clamp(24px, 4vw, 64px);
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 4;
-  width: 104px;
+  width: 184px;
   overflow: hidden;
   min-height: 72px;
   padding: 20px 24px;
@@ -79,7 +79,6 @@
 .site-header.is-scrolled {
   --header-detail-width: 180px;
   --header-detail-opacity: 1;
-  --header-logo-gap: 13px;
   width: min(760px, calc(100% - 48px));
   background-color: var(--color-header-glass-expanded);
 }
@@ -87,16 +86,13 @@
   .site-header:hover {
     --header-detail-width: 180px;
     --header-detail-opacity: 1;
-    --header-logo-gap: 13px;
     width: min(760px, calc(100% - 48px));
     background-color: var(--color-header-glass-expanded);
   }
 }
 .site-header .wordmark {
   flex-shrink: 0;
-  gap: var(--header-logo-gap);
 }
-.site-header .wordmark span,
 .site-header > span {
   max-width: var(--header-detail-width);
   opacity: var(--header-detail-opacity);
@@ -246,32 +242,8 @@
 .text-link:hover {
   background: var(--color-brand-hover);
 }
-.down-link {
-  position: absolute;
-  left: 50%;
-  bottom: 12px;
-  transform: translateX(-50%);
-  z-index: 1;
-  display: grid;
-  place-items: center;
-  padding: 10px;
-  color: var(--color-on-brand);
-}
-.down-link span {
-  background: var(--color-brand);
-  width: 42px;
-  height: 42px;
-  border: 1px solid currentColor;
-  border-radius: var(--radius-button);
-  display: grid;
-  place-items: center;
-  font-size: 22px;
-}
 .wordmark:hover {
   color: var(--color-brand-hover);
-}
-.down-link:hover span {
-  background: var(--color-brand-hover);
 }
 .skip-link {
   position: absolute;
@@ -312,10 +284,9 @@
 @media (max-width: 640px) {
   .site-header {
     top: 16px;
-    left: 24px;
     padding: 16px 20px;
     min-height: 64px;
-    width: 88px;
+    width: 160px;
   }
   .site-header > span {
     font-size: 9px;
@@ -348,9 +319,6 @@
     bottom: 80px;
     padding: 24px;
   }
-  .down-link {
-    display: none;
-  }
   .text-link {
     right: 16px;
     gap: 8px;
@@ -359,7 +327,6 @@
 }
 @media (prefers-reduced-motion: reduce) {
   .site-header,
-  .site-header .wordmark span,
   .site-header > span {
     transition: none;
   }
