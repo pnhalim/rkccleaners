@@ -39,7 +39,7 @@
   --header-logo-gap: 0px;
   position: fixed;
   top: 24px;
-  left: 24px;
+  left: clamp(24px, 4vw, 64px);
   z-index: 4;
   width: 104px;
   overflow: hidden;
@@ -50,11 +50,16 @@
   background-color: var(--color-header-glass);
   background-image:
     radial-gradient(ellipse at 18% 0%, rgb(255 255 255 / 65%), transparent 55%),
+    radial-gradient(
+      ellipse at 95% 85%,
+      rgb(255 190 225 / 35%),
+      transparent 65%
+    ),
     linear-gradient(
       165deg,
-      rgb(255 255 255 / 24%),
+      rgb(180 235 255 / 32%),
       transparent 45%,
-      rgb(255 255 255 / 12%)
+      rgb(215 200 255 / 24%)
     );
   backdrop-filter: blur(18px) saturate(165%) contrast(108%);
   box-shadow:
@@ -307,7 +312,7 @@
 @media (max-width: 640px) {
   .site-header {
     top: 16px;
-    left: 16px;
+    left: 24px;
     padding: 16px 20px;
     min-height: 64px;
     width: 88px;
