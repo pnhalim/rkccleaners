@@ -181,7 +181,7 @@
   width: min(680px, 100%);
   padding: 32px clamp(24px, 4vw, 64px);
   color: var(--color-on-brand);
-  text-shadow: 0 2px 12px rgb(0 0 0 / 45%);
+  text-shadow: 0 2px 12px rgb(0 0 0 / 30%);
   pointer-events: none;
 }
 .heading-accent {
