@@ -19,6 +19,14 @@ function initializePlayer() {
       onReady: setVideoSpeed,
       onStateChange: (event) => {
         if (event.data === window.YT.PlayerState.PLAYING) setVideoSpeed(event);
+        if (event.data === window.YT.PlayerState.ENDED) {
+          // Reload the segment so YouTube reapplies its end time on every loop.
+          event.target.loadVideoById({
+            videoId: videoUrl.pathname.split('/').pop(),
+            startSeconds: Number(videoUrl.searchParams.get('start')),
+            endSeconds: Number(videoUrl.searchParams.get('end')),
+          });
+        }
         if (event.data === window.YT.PlayerState.PAUSED)
           event.target.playVideo();
       },
