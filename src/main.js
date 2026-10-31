@@ -3,6 +3,18 @@ import { gsap } from 'gsap';
 
 const opening = document.querySelector('#home');
 const media = gsap.matchMedia();
+const header = document.querySelector('.site-header');
+const headerEvents = new AbortController();
+
+function updateHeader() {
+  header.classList.toggle('is-scrolled', window.scrollY > 0);
+}
+
+window.addEventListener('scroll', updateHeader, {
+  passive: true,
+  signal: headerEvents.signal,
+});
+updateHeader();
 
 const videoFrame = opening.querySelector('iframe');
 const videoUrl = new URL(videoFrame.src);
@@ -118,5 +130,8 @@ media.add('(prefers-reduced-motion: no-preference)', () => {
 });
 
 if (import.meta.hot) {
-  import.meta.hot.dispose(() => media.revert());
+  import.meta.hot.dispose(() => {
+    media.revert();
+    headerEvents.abort();
+  });
 }

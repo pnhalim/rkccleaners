@@ -2,6 +2,8 @@
   --color-cinema: #000;
   --color-page: #f3f1ed;
   --color-surface: #fff;
+  --color-header-glass: rgb(255 255 255 / 42%);
+  --color-header-glass-expanded: rgb(255 255 255 / 62%);
   --color-ink: oklch(21.6% 0.006 56.043);
   --color-muted: oklch(44.4% 0.011 73.639);
   --color-line: oklch(92.3% 0.003 48.717);
