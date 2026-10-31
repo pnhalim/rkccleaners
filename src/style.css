@@ -59,20 +59,23 @@
   width: 100%;
   height: 100%;
   transform: scale(1.15);
+  filter: blur(2px);
   border: 0;
 }
 .video-wrap::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to right,
-    rgb(0 0 0 / 100%) 0%,
-    rgb(0 0 0 / 100%) 10%,
-    rgb(0 0 0 / 10%) 30%,
-    rgb(0 0 0 / 10%) 60%,
-    rgb(0 0 0 / 100%) 90%
-  );
+  background:
+    url('./assets/video-grain.svg'),
+    linear-gradient(
+      to right,
+      rgb(0 0 0 / 100%) 0%,
+      rgb(0 0 0 / 100%) 10%,
+      rgb(0 0 0 / 10%) 30%,
+      rgb(0 0 0 / 10%) 60%,
+      rgb(0 0 0 / 100%) 90%
+    );
   pointer-events: none;
 }
 .about-blurb {
@@ -102,9 +105,28 @@
 }
 .about-blurb > p {
   max-width: 38ch;
-  font-size: 16px;
-  line-height: 1.7;
+  font-size: clamp(18px, 1.5vw, 22px);
+  line-height: 1.6;
   color: rgb(255 255 255 / 90%);
+}
+.service-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+  list-style: none;
+  padding: 0;
+}
+.service-highlights li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border: 1px solid rgb(255 255 255 / 40%);
+  border-radius: var(--radius-button);
+  background: rgb(0 0 0 / 30%);
+  font-size: 14px;
+  line-height: 1.4;
 }
 .text-link {
   position: absolute;
@@ -209,12 +231,14 @@
     transform: translateY(-22%) scale(1.75);
   }
   .video-wrap::after {
-    background: linear-gradient(
-      to top,
-      rgb(0 0 0 / 95%) 0%,
-      rgb(0 0 0 / 75%) 30%,
-      transparent 70%
-    );
+    background:
+      url('./assets/video-grain.svg'),
+      linear-gradient(
+        to top,
+        rgb(0 0 0 / 95%) 0%,
+        rgb(0 0 0 / 75%) 30%,
+        transparent 70%
+      );
   }
   .about-blurb {
     top: auto;
