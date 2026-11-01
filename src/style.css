@@ -602,7 +602,8 @@
   }
 }
 .review-strip:focus-visible,
-.strip-arrow:focus-visible {
+.strip-arrow:focus-visible,
+.scroll-comments:focus-visible {
   outline: 3px solid var(--color-focus);
   outline-offset: 5px;
 }
@@ -758,10 +759,17 @@
   outline: 3px solid var(--color-focus);
   outline-offset: 4px;
 }
+/* Comments scroll inside their own box. Sideways overflow stays hidden so the
+   pop-in overshoot can't flash a horizontal scrollbar. */
 .scroll-comments {
   display: grid;
-  gap: 35vh;
-  padding-block: 20vh 10vh;
+  gap: 12rem;
+  height: min(36rem, 70vh);
+  margin-top: 2.5rem;
+  padding: 2.5rem clamp(1.25rem, 4vw, 3rem) 16rem;
+  overflow: hidden auto;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-panel);
 }
 .scroll-comment {
   max-width: 44rem;

@@ -139,6 +139,8 @@ media.add(
   },
 );
 
+const commentList = document.querySelector('.scroll-comments');
+
 media.add('(prefers-reduced-motion: no-preference)', () => {
   gsap.utils.toArray('.scroll-comment').forEach((comment) => {
     gsap.from(comment, {
@@ -149,6 +151,7 @@ media.add('(prefers-reduced-motion: no-preference)', () => {
       ease: 'back.out(1.7)',
       scrollTrigger: {
         trigger: comment,
+        scroller: commentList,
         start: 'top 85%',
         end: 'bottom 15%',
         toggleActions: 'play reverse play reverse',
