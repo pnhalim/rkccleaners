@@ -9,33 +9,42 @@
     />
     <title>RKC Cleaners</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <script type="module" src="/src/main.js"></script>
   </head>
   <body class="bg-page font-body text-ink antialiased">
     <a class="skip-link" href="#main">Skip to content</a>
     <main id="main">
       <section id="home" class="hero" aria-label="Welcome to RKC Cleaners">
-        <header class="site-header">
+        <header class="site-header is-at-home">
           <a class="wordmark" href="#home">RKC<span>CLEANERS</span></a>
-          <span>Care in every detail.</span>
+          <button
+            class="text-link header-contact"
+            type="button"
+            disabled
+            title="Contact details coming soon"
+          >
+            Contact us <span aria-hidden="true">↗</span>
+          </button>
         </header>
         <div class="video-wrap">
-          <iframe
-            src="https://www.youtube-nocookie.com/embed/Zqq2ikZ_5EY?enablejsapi=1&amp;start=48&amp;end=188&amp;autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=Zqq2ikZ_5EY&amp;controls=0&amp;disablekb=1&amp;playsinline=1&amp;rel=0"
-            title="RKC Cleaners introduction"
-            tabindex="-1"
-            allow="
-              autoplay;
-              accelerometer;
-              encrypted-media;
-              gyroscope;
-              picture-in-picture;
-              fullscreen;
-            "
-            allowfullscreen
-          ></iframe>
-          <div class="about-blurb">
-            <h1>
+          <video
+            class="hero-video"
+            src="/media/rkc-cleaners-loop.mp4"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="auto"
+            aria-hidden="true"
+          ></video>
+          <section class="about-blurb" aria-labelledby="hero-heading">
+            <h1 id="hero-heading">
               <span class="heading-accent">Reliable</span> and
               <span class="heading-accent">quality</span> service.
             </h1>
@@ -43,21 +52,13 @@
               We provide expert cleaning services for your business. Serving the
               greater Chicago area.
             </p>
-          </div>
-          <button
-            class="text-link"
-            type="button"
-            disabled
-            title="Contact details coming soon"
-          >
-            Contact us <span aria-hidden="true">↗</span>
-          </button>
-          <a class="down-link" href="#hero-end" aria-label="Continue down"
-            ><span aria-hidden="true">↓</span></a
-          >
+            <ul class="service-highlights" aria-label="Service highlights">
+              <li><span aria-hidden="true">✓</span> 5–7 business days</li>
+              <li><span aria-hidden="true">✓</span> Medical-grade cleaning</li>
+            </ul>
+          </section>
         </div>
       </section>
-      <div id="hero-end"></div>
     </main>
   </body>
 </html>
