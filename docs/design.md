@@ -28,6 +28,7 @@ Follow the [README setup guide](../README.md#first-time-setup), create a branch 
 | `--color-brand-hover`                          | Navigation link hover color                             |
 | `--color-brand-deep`                           | Feature panel background and primary button hover color |
 | `--color-on-brand`, `--color-on-brand-muted`   | Text on brand backgrounds                               |
+| `--color-accent`                               | Secondary blue for selected states                      |
 | `--color-focus`                                | Keyboard focus outline                                  |
 | `--font-body`, `--font-heading`                | Body and heading font families                          |
 | `--radius-button`, `--radius-panel`            | Button and feature panel corner radii                   |
