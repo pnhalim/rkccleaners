@@ -770,6 +770,19 @@
   overflow: hidden auto;
   border: 1px solid var(--color-line);
   border-radius: var(--radius-panel);
+  /* Soft shadows mark each edge with more to scroll to, since overlay
+     scrollbars stay hidden until you scroll. The surface-colored covers
+     scroll with the content and hide each shadow once that end is reached. */
+  background:
+    linear-gradient(var(--color-surface) 40%, transparent) top / 100% 3rem
+      no-repeat local,
+    linear-gradient(transparent, var(--color-surface) 60%) bottom / 100% 3rem
+      no-repeat local,
+    radial-gradient(farthest-side at 50% 0, rgb(0 0 0 / 14%), transparent) top /
+      100% 1rem no-repeat,
+    radial-gradient(farthest-side at 50% 100%, rgb(0 0 0 / 14%), transparent)
+      bottom / 100% 1rem no-repeat,
+    var(--color-surface);
 }
 .scroll-comment {
   max-width: 44rem;

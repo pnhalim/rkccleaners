@@ -141,22 +141,37 @@ media.add(
 
 const commentList = document.querySelector('.scroll-comments');
 
-media.add('(prefers-reduced-motion: no-preference)', () => {
-  gsap.utils.toArray('.scroll-comment').forEach((comment) => {
+media.add('(prefers-reduced-motion: no-preference)', (context) => {
+  const pops = gsap.utils.toArray('.scroll-comment').map((comment) =>
     gsap.from(comment, {
       opacity: 0,
       scale: 0.6,
       y: 60,
       duration: 0.5,
       ease: 'back.out(1.7)',
-      scrollTrigger: {
-        trigger: comment,
-        scroller: commentList,
-        start: 'top 85%',
-        end: 'bottom 15%',
-        toggleActions: 'play reverse play reverse',
-      },
-    });
+      paused: true,
+    }),
+  );
+  // The box only starts watching its own scroll once the page first reaches
+  // it, so the first comment pops in then rather than unseen on load. Adding
+  // those triggers through the context lets the media query still clean them up.
+  ScrollTrigger.create({
+    trigger: commentList,
+    start: 'top 70%',
+    once: true,
+    onEnter: () =>
+      context.add(() =>
+        pops.forEach((pop) =>
+          ScrollTrigger.create({
+            trigger: pop.targets()[0],
+            scroller: commentList,
+            start: 'top 85%',
+            end: 'bottom 15%',
+            animation: pop,
+            toggleActions: 'play reverse play reverse',
+          }),
+        ),
+      ),
   });
 });
 
