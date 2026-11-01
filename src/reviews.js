@@ -141,37 +141,39 @@ media.add(
 
 const commentList = document.querySelector('.scroll-comments');
 
-media.add('(prefers-reduced-motion: no-preference)', (context) => {
-  const pops = gsap.utils.toArray('.scroll-comment').map((comment) =>
-    gsap.from(comment, {
+media.add('(prefers-reduced-motion: no-preference)', () => {
+  let boxInView = false;
+  const comments = gsap.utils.toArray('.scroll-comment').map((comment) => {
+    const pop = gsap.from(comment, {
       opacity: 0,
       scale: 0.6,
       y: 60,
       duration: 0.5,
       ease: 'back.out(1.7)',
       paused: true,
-    }),
-  );
-  // The box only starts watching its own scroll once the page first reaches
-  // it, so the first comment pops in then rather than unseen on load. Adding
-  // those triggers through the context lets the media query still clean them up.
+    });
+    const inBox = ScrollTrigger.create({
+      trigger: comment,
+      scroller: commentList,
+      start: 'top 85%',
+      end: 'bottom 15%',
+      onToggle: () => boxInView && show(),
+    });
+    const show = () =>
+      boxInView && inBox.isActive ? pop.play() : pop.reverse();
+    return show;
+  });
+
+  // Comments only pop while the box is on screen, so whichever comment the
+  // box is scrolled to pops in each time the page brings the box back.
   ScrollTrigger.create({
     trigger: commentList,
     start: 'top 70%',
-    once: true,
-    onEnter: () =>
-      context.add(() =>
-        pops.forEach((pop) =>
-          ScrollTrigger.create({
-            trigger: pop.targets()[0],
-            scroller: commentList,
-            start: 'top 85%',
-            end: 'bottom 15%',
-            animation: pop,
-            toggleActions: 'play reverse play reverse',
-          }),
-        ),
-      ),
+    end: 'bottom 30%',
+    onToggle: (self) => {
+      boxInView = self.isActive;
+      comments.forEach((show) => show());
+    },
   });
 });
 
