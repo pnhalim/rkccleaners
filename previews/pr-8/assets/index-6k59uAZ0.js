@@ -1,0 +1,1 @@
+import"./style-BoJJln7i.js";var e=document.querySelector(`#home`),t=document.querySelector(`.site-header`);new IntersectionObserver(([e])=>{t.classList.toggle(`is-at-home`,e.isIntersecting)}).observe(e);
