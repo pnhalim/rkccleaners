@@ -94,6 +94,12 @@
   height: 100svh;
   background: var(--color-cinema);
 }
+.video-color-filter {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
 .hero-video {
   pointer-events: none;
   position: absolute;
@@ -101,7 +107,15 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transform: scale(1.15);
+  transform: scale(1.1);
+  filter: url(#hero-color-grade) brightness(0.8) saturate(1.1) contrast(0.8);
+}
+.video-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgb(0 0 0 / 28%), transparent 100%);
+  pointer-events: none;
 }
 .about-blurb {
   z-index: 1;
@@ -112,20 +126,20 @@
   padding: 48px;
   color: var(--color-on-brand);
   text-shadow:
-    0 2px 8px rgb(0 0 0 / 80%),
-    0 6px 28px rgb(0 0 0 / 65%);
+    0 2px 6px rgb(0 0 0 / 50%),
+    0 6px 20px rgb(0 0 0 / 30%);
 }
 .about-blurb::before {
   content: '';
   position: absolute;
-  inset: -24px;
   z-index: -1;
+  inset: 0;
   background: radial-gradient(
-    ellipse at 35% 55%,
-    rgb(0 0 0 / 65%),
+    ellipse at 40% 55%,
+    rgb(0 0 0 / 42%),
     transparent 75%
   );
-  filter: blur(24px);
+  filter: blur(18px);
   pointer-events: none;
 }
 .heading-accent {
@@ -556,7 +570,15 @@
     min-height: 760px;
   }
   .hero-video {
-    transform: translateY(-22%) scale(1.75);
+    transform: none;
+    object-position: 60% center;
+  }
+  .video-wrap::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgb(0 0 0 / 28%), transparent 60%);
+    pointer-events: none;
   }
   .about-blurb {
     bottom: 88px;
