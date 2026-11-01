@@ -179,14 +179,14 @@
   font-weight: 600;
   pointer-events: auto;
 }
-.header-contact {
+.header-action {
   display: none;
 }
-.site-header:is(:focus-within, .is-at-home) .header-contact {
+.site-header:is(:focus-within, .is-at-home) .header-action {
   display: inline-flex;
 }
 @media (hover: hover) {
-  .site-header:hover .header-contact {
+  .site-header:hover .header-action {
     display: inline-flex;
   }
 }
@@ -806,6 +806,11 @@
   }
   .wordmark span {
     font-size: 8px;
+  }
+  .site-header .text-link {
+    gap: 8px;
+    padding: 12px 10px;
+    font-size: 11px;
   }
 }
 @media (max-width: 640px) {
