@@ -15,9 +15,9 @@
       href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <script type="module" crossorigin src="/rkccleaners/previews/pr-11/assets/index-BeMGIzBQ.js"></script>
-    <link rel="modulepreload" crossorigin href="/rkccleaners/previews/pr-11/assets/style-UK3krdU7.js">
-    <link rel="stylesheet" crossorigin href="/rkccleaners/previews/pr-11/assets/style-C7WMa8eH.css">
+    <script type="module" crossorigin src="/rkccleaners/previews/pr-11/assets/index-DjO4bhxx.js"></script>
+    <link rel="modulepreload" crossorigin href="/rkccleaners/previews/pr-11/assets/style-vLBBENTn.js">
+    <link rel="stylesheet" crossorigin href="/rkccleaners/previews/pr-11/assets/style-D-2gGBUY.css">
   </head>
   <body class="bg-page font-body text-ink antialiased">
     <a class="skip-link" href="#main">Skip to content</a>
@@ -37,6 +37,20 @@
             Contact us <span aria-hidden="true">↗</span>
           </button>
         </header>
+        <svg
+          class="video-color-filter"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs>
+            <filter id="hero-color-grade" color-interpolation-filters="sRGB">
+              <feColorMatrix
+                type="matrix"
+                values="1 0 0 0 0  0 1 0 0 0  0.18 0.18 0.64 0 0  0 0 0 1 0"
+              />
+            </filter>
+          </defs>
+        </svg>
         <div class="video-wrap">
           <video
             class="hero-video"
@@ -110,7 +124,7 @@
       </section>
 
       <section
-        class="content-section partners-section"
+        class="content-section partners-section bg-surface"
         id="partners"
         aria-labelledby="partners-title"
       >
@@ -147,6 +161,20 @@
 
       <section
         class="content-section"
+        id="reviews"
+        aria-labelledby="reviews-title"
+      >
+        <div class="section-inner">
+          <header class="section-heading">
+            <p class="section-eyebrow">What customers say</p>
+            <h2 id="reviews-title">Reviews</h2>
+          </header>
+          <!-- Left blank for whichever review sketch on reviews/ is chosen. -->
+        </div>
+      </section>
+
+      <section
+        class="content-section bg-surface"
         id="why-us"
         aria-labelledby="why-us-title"
       >

@@ -9,9 +9,9 @@
     />
     <title>Reviews | RKC Cleaners</title>
     <link rel="icon" type="image/svg+xml" href="/rkccleaners/previews/pr-11/favicon.svg" />
-    <script type="module" crossorigin src="/rkccleaners/previews/pr-11/assets/index-v4bQ1Z1E.js"></script>
-    <link rel="modulepreload" crossorigin href="/rkccleaners/previews/pr-11/assets/style-UK3krdU7.js">
-    <link rel="stylesheet" crossorigin href="/rkccleaners/previews/pr-11/assets/style-C7WMa8eH.css">
+    <script type="module" crossorigin src="/rkccleaners/previews/pr-11/assets/index-DHV7t4Oz.js"></script>
+    <link rel="modulepreload" crossorigin href="/rkccleaners/previews/pr-11/assets/style-vLBBENTn.js">
+    <link rel="stylesheet" crossorigin href="/rkccleaners/previews/pr-11/assets/style-D-2gGBUY.css">
   </head>
   <body class="bg-page font-body text-ink antialiased">
     <a
@@ -65,6 +65,7 @@
         id="review-strip"
         class="scroll-mt-8 border-t border-line py-20"
         aria-labelledby="review-strip-title"
+        tabindex="-1"
       >
         <p class="text-sm font-semibold uppercase tracking-widest text-brand">
           Sketch 1
@@ -323,8 +324,49 @@
           </div>
         </div>
       </section>
-      <a class="skip-bubble" href="#review-scroll">
-        Skip<span class="sr-only"> review bubbles</span>
+      <a
+        class="skip-bubble skip-bubble-up"
+        href="#review-strip"
+        aria-label="Skip up past the review bubbles"
+      >
+        <span class="skip-bubble-face">
+          <svg
+            viewBox="0 0 24 24"
+            width="20"
+            height="20"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M12 19V5" />
+            <path d="m5 12 7-7 7 7" />
+          </svg>
+        </span>
+      </a>
+      <a
+        class="skip-bubble"
+        href="#review-scroll"
+        aria-label="Skip down past the review bubbles"
+      >
+        <span class="skip-bubble-face">
+          <svg
+            viewBox="0 0 24 24"
+            width="20"
+            height="20"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M12 5v14" />
+            <path d="m19 12-7 7-7-7" />
+          </svg>
+        </span>
       </a>
 
       <section
@@ -345,55 +387,57 @@
         <p class="mt-3 text-muted">
           A homepage band where reviews pop in and out as you scroll inside it.
         </p>
-        <ul
-          class="scroll-comments"
-          tabindex="0"
-          aria-labelledby="review-scroll-title"
-        >
-          <li>
-            <figure class="scroll-comment">
-              <blockquote class="scroll-comment-box">
-                Every delivery is counted, folded and labeled exactly how our
-                housekeepers like it.
-              </blockquote>
-              <figcaption class="scroll-comment-name">
-                Nina H., executive housekeeper
-              </figcaption>
-            </figure>
-          </li>
-          <li>
-            <figure class="scroll-comment">
-              <blockquote class="scroll-comment-box">
-                We've used three laundry services in ten years. RKC is the first
-                one we haven't had to manage.
-              </blockquote>
-              <figcaption class="scroll-comment-name">
-                Robert C., general manager
-              </figcaption>
-            </figure>
-          </li>
-          <li>
-            <figure class="scroll-comment">
-              <blockquote class="scroll-comment-box">
-                Quick turnaround, careful handling, and no surprises on the
-                invoice.
-              </blockquote>
-              <figcaption class="scroll-comment-name">
-                Leah T., office manager
-              </figcaption>
-            </figure>
-          </li>
-          <li>
-            <figure class="scroll-comment">
-              <blockquote class="scroll-comment-box">
-                They feel like part of our team, not a vendor.
-              </blockquote>
-              <figcaption class="scroll-comment-name">
-                Carlos V., hotel owner
-              </figcaption>
-            </figure>
-          </li>
-        </ul>
+        <div class="scroll-comments-frame">
+          <ul
+            class="scroll-comments"
+            tabindex="0"
+            aria-labelledby="review-scroll-title"
+          >
+            <li>
+              <figure class="scroll-comment">
+                <blockquote class="scroll-comment-box">
+                  Every delivery is counted, folded and labeled exactly how our
+                  housekeepers like it.
+                </blockquote>
+                <figcaption class="scroll-comment-name">
+                  Nina H., executive housekeeper
+                </figcaption>
+              </figure>
+            </li>
+            <li>
+              <figure class="scroll-comment">
+                <blockquote class="scroll-comment-box">
+                  We've used three laundry services in ten years. RKC is the
+                  first one we haven't had to manage.
+                </blockquote>
+                <figcaption class="scroll-comment-name">
+                  Robert C., general manager
+                </figcaption>
+              </figure>
+            </li>
+            <li>
+              <figure class="scroll-comment">
+                <blockquote class="scroll-comment-box">
+                  Quick turnaround, careful handling, and no surprises on the
+                  invoice.
+                </blockquote>
+                <figcaption class="scroll-comment-name">
+                  Leah T., office manager
+                </figcaption>
+              </figure>
+            </li>
+            <li>
+              <figure class="scroll-comment">
+                <blockquote class="scroll-comment-box">
+                  They feel like part of our team, not a vendor.
+                </blockquote>
+                <figcaption class="scroll-comment-name">
+                  Carlos V., hotel owner
+                </figcaption>
+              </figure>
+            </li>
+          </ul>
+        </div>
       </section>
       <section
         id="share"
