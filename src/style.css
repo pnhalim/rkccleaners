@@ -596,8 +596,7 @@
   }
 }
 .review-strip:focus-visible,
-.strip-arrow:focus-visible,
-.scroll-comments-frame:has(> :focus-visible) {
+.strip-arrow:focus-visible {
   outline: 3px solid var(--color-focus);
   outline-offset: 5px;
 }
@@ -762,29 +761,30 @@
   outline: 3px solid var(--color-focus);
   outline-offset: 4px;
 }
-/* The mask on the list would hide its own focus ring, so the frame draws it. */
+/* Without motion the comments are a plain list. With it, the frame clips them
+   to a window that the page scroll moves them through while the section is
+   pinned, sized so the pinned section fits on screen. */
 .scroll-comments-frame {
   margin-top: 2.5rem;
 }
-.scroll-comments:focus-visible {
-  outline: none;
-}
-/* Comments scroll inside their own box. Sideways overflow stays hidden so the
-   pop-in overshoot can't flash a horizontal scrollbar. */
 .scroll-comments {
   display: grid;
-  gap: 12rem;
-  height: min(36rem, 70vh);
-  padding: 2.5rem 0 16rem;
-  overflow: hidden auto;
-  /* Comments fade into the page at the top and bottom edges to show the box
-     scrolls, since overlay scrollbars stay hidden until you scroll. */
+  gap: 3rem;
+}
+.scroll-comments-frame.is-clipped {
+  height: min(36rem, 100svh - 20rem);
+  overflow: clip;
+  /* Comments fade into the page at the top and bottom edges. */
   mask-image: linear-gradient(
     transparent,
     #000 2.5rem,
     #000 calc(100% - 2.5rem),
     transparent
   );
+}
+.is-clipped .scroll-comments {
+  gap: 12rem;
+  padding: 2.5rem 0 16rem;
 }
 .scroll-comment {
   max-width: 30rem;
