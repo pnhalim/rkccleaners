@@ -867,6 +867,10 @@
   }
   .skip-bubble {
     animation: bubble-float var(--float, 3.6s) ease-in-out infinite alternate;
+  }
+  /* Only bubbles that have been shown shrink away. The Vite dev server applies
+     styles after the first paint, which would otherwise play this on load. */
+  .skip-bubble.has-shown {
     transition:
       scale 0.25s ease-in,
       visibility 0s 0.25s;

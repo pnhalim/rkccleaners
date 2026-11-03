@@ -3,6 +3,12 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
+// The browser restores a reload's scroll position before the review bubbles
+// pin and add their scroll distance, which drops a reload from further down
+// into the middle of the bubbles. Start reloads at the top instead. Setting
+// history.scrollRestoration directly doesn't stick, since ScrollTrigger
+// reapplies its own value after every refresh.
+ScrollTrigger.clearScrollMemory('manual');
 
 const strip = document.querySelector('.review-strip');
 const previous = document.querySelector('.strip-prev');
@@ -109,6 +115,7 @@ function showSkips(visible) {
     // it shows again so it can't flash back while shrinking away.
     if (visible) link.classList.remove('is-popping');
     link.classList.toggle('is-visible', visible);
+    if (visible) link.classList.add('has-shown');
   });
 }
 
