@@ -294,9 +294,6 @@
 .reason-card p {
   margin: 0;
 }
-.partners-section {
-  background: var(--color-surface);
-}
 .partners-section .section-heading {
   margin-bottom: 28px;
 }
@@ -420,9 +417,6 @@
 .reason-card h3,
 .reason-card p {
   grid-column: 2;
-}
-.faq-section {
-  background: var(--color-surface);
 }
 .faq-inner {
   display: grid;
