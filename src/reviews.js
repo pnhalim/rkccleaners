@@ -44,7 +44,7 @@ updateArrows();
 
 const bubbleSection = document.querySelector('#review-bubbles');
 const bubbles = [...bubbleSection.querySelectorAll('.review-bubble')];
-const skip = document.querySelector('.skip-bubble');
+const skips = document.querySelectorAll('.skip-bubble');
 // Scrolling the pinned section steps from centered, through each review, and
 // back to centered before moving on.
 const bubbleSteps = [null, ...bubbles, null];
@@ -81,13 +81,36 @@ bubbles.forEach((bubble) =>
   }),
 );
 
-skip.addEventListener('click', (event) => {
+function skipPast(link) {
   // Jump instead of smooth scrolling, which would flip through every review.
-  event.preventDefault();
-  const nextSection = document.querySelector(skip.hash);
-  nextSection.scrollIntoView({ behavior: 'instant' });
-  nextSection.focus({ preventScroll: true });
-});
+  // Skipping up lands at the end of the section above, just before the
+  // bubbles, since their own heading is already inside the pinned stretch.
+  const section = document.querySelector(link.hash);
+  const block = link.classList.contains('skip-bubble-up') ? 'end' : 'start';
+  section.scrollIntoView({ behavior: 'instant', block });
+  section.focus({ preventScroll: true });
+}
+
+skips.forEach((link) =>
+  link.addEventListener('click', (event) => {
+    event.preventDefault();
+    if (link.classList.contains('is-popping')) return;
+    if (reduceMotion.matches) return skipPast(link);
+    link.classList.add('is-popping');
+    link.addEventListener('animationend', () => skipPast(link), {
+      once: true,
+    });
+  }),
+);
+
+function showSkips(visible) {
+  skips.forEach((link) => {
+    // A popped bubble stays invisible while it hides, and is reset only once
+    // it shows again so it can't flash back while shrinking away.
+    if (visible) link.classList.remove('is-popping');
+    link.classList.toggle('is-visible', visible);
+  });
+}
 
 // While you scroll through the reviews the section creeps at SLOW times the
 // scroll speed instead of stopping. Pinning holds it steady, since the browser
@@ -125,8 +148,7 @@ media.add(
             const step = Math.floor(self.progress * bubbleSteps.length);
             selectBubble(bubbleSteps[Math.min(step, bubbleSteps.length - 1)]);
           },
-          onToggle: (self) =>
-            skip.classList.toggle('is-visible', self.isActive),
+          onToggle: (self) => showSkips(self.isActive),
         },
       },
     );
@@ -134,7 +156,7 @@ media.add(
     return () => {
       bubbleScroll = null;
       selectBubble(null);
-      skip.classList.remove('is-visible');
+      showSkips(false);
     };
   },
 );
