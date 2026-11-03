@@ -1,8 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 68">
-  <rect width="68" height="68" rx="12" fill="#fff" />
-  <g fill="#b4232c" transform="translate(0 2)">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 74 74">
+  <g fill="#b4232c" stroke="#b4232c" stroke-width="1.5" stroke-linejoin="round" transform="translate(0 5)">
     <path fill-rule="evenodd" d="M3 47V17h10c7 0 11 3 11 9 0 4-2 7-5 8l6 13h-7l-6-12H9v12Zm6-24v6h4c3 0 5-1 5-3s-2-3-5-3Z" />
-    <path d="M26 17h6v12l8-12h7L37 32l10 15h-7l-8-12v12h-6Z" />
-    <path d="m65 21-4 4c-2-2-3-3-5-3-5 0-7 4-7 10s2 10 7 10c2 0 4-1 6-3l4 4c-3 3-6 5-10 5-8 0-13-6-13-16s5-16 13-16c4 0 7 2 9 5Z" />
+    <path transform="translate(2 0)" d="M26 17h6v12l8-12h7L37 32l10 15h-7l-8-12v12h-6Z" />
+    <path transform="translate(6 0)" d="m65 21-4 4c-2-2-3-3-5-3-5 0-7 4-7 10s2 10 7 10c2 0 4-1 6-3l4 4c-3 3-6 5-10 5-8 0-13-6-13-16s5-16 13-16c4 0 7 2 9 5Z" />
   </g>
 </svg>
