@@ -35,6 +35,20 @@
             Contact us <span aria-hidden="true">↗</span>
           </button>
         </header>
+        <svg
+          class="video-color-filter"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs>
+            <filter id="hero-color-grade" color-interpolation-filters="sRGB">
+              <feColorMatrix
+                type="matrix"
+                values="1 0 0 0 0  0 1 0 0 0  0.18 0.18 0.64 0 0  0 0 0 1 0"
+              />
+            </filter>
+          </defs>
+        </svg>
         <div class="video-wrap">
           <video
             class="hero-video"
