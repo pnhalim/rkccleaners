@@ -225,6 +225,7 @@
         id="review-bubbles"
         class="scroll-mt-8 border-t border-line py-20"
         aria-labelledby="review-bubbles-title"
+        tabindex="-1"
       >
         <p class="text-sm font-semibold uppercase tracking-widest text-brand">
           Sketch 2
@@ -436,11 +437,58 @@
           </ul>
         </div>
       </section>
+      <div class="skip-bubbles-brand" data-skips-for="review-scroll">
+        <a
+          class="skip-bubble skip-bubble-up"
+          href="#review-bubbles"
+          aria-label="Skip up past the scroll-in comments"
+        >
+          <span class="skip-bubble-face">
+            <svg
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M12 19V5" />
+              <path d="m5 12 7-7 7 7" />
+            </svg>
+          </span>
+        </a>
+        <a
+          class="skip-bubble"
+          href="#share"
+          aria-label="Skip down past the scroll-in comments"
+        >
+          <span class="skip-bubble-face">
+            <svg
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M12 5v14" />
+              <path d="m19 12-7 7-7-7" />
+            </svg>
+          </span>
+        </a>
+      </div>
       <section
         id="share"
         class="scroll-mt-8 rounded-panel bg-brand-deep px-8 py-16 text-on-brand sm:px-12"
         aria-labelledby="share-title"
         data-reveal
+        tabindex="-1"
       >
         <h2
           id="share-title"

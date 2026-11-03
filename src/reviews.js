@@ -3,6 +3,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { initReviewBubbles } from './review-bubbles.js';
 import { initReviewStrip } from './review-strip.js';
+import { initSkipBubbles } from './skip-bubbles.js';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -17,6 +18,7 @@ const media = gsap.matchMedia();
 const commentSection = document.querySelector('#review-scroll');
 const commentFrame = document.querySelector('.scroll-comments-frame');
 const commentList = document.querySelector('.scroll-comments');
+const showCommentSkips = initSkipBubbles(commentSection);
 
 media.add('(prefers-reduced-motion: no-preference)', () => {
   commentFrame.classList.add('is-clipped');
@@ -66,6 +68,7 @@ media.add('(prefers-reduced-motion: no-preference)', () => {
       // Page scrolls move the window on and off screen; this catches the list
       // moving inside it, after its new position has been applied.
       onUpdate: updatePops,
+      onToggle: (self) => showCommentSkips(self.isActive),
     },
   });
   addEventListener('scroll', updatePops, { passive: true });
@@ -73,6 +76,7 @@ media.add('(prefers-reduced-motion: no-preference)', () => {
 
   return () => {
     removeEventListener('scroll', updatePops);
+    showCommentSkips(false);
     commentFrame.classList.remove('is-clipped');
   };
 });

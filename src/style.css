@@ -532,6 +532,31 @@
     inset -3px -4px 10px rgb(150 215 255 / 30%),
     0 0 14px rgb(65 165 245 / 15%);
 }
+/* Sketch 3's skip bubbles take its comments' brand red and white text, keeping
+   the blue glass's layers so the highlight, translucent edge and glow stay the
+   same. Red needs stronger tints than blue to read as red rather than pink. */
+.skip-bubbles-brand .skip-bubble {
+  color: var(--color-on-brand);
+}
+.skip-bubbles-brand .skip-bubble-face {
+  --tint-light: color-mix(in srgb, var(--color-brand), white 20%);
+  border-color: color-mix(in srgb, var(--tint-light) 80%, transparent);
+  background:
+    radial-gradient(circle at 28% 24%, rgb(255 255 255 / 85%), transparent 17%),
+    radial-gradient(
+      circle at 68% 75%,
+      color-mix(in srgb, var(--color-brand) 90%, transparent),
+      transparent 62%
+    ),
+    radial-gradient(
+      circle at 40% 35%,
+      color-mix(in srgb, var(--color-brand) 55%, transparent) 35%,
+      color-mix(in srgb, var(--tint-light) 80%, transparent) 100%
+    );
+  box-shadow:
+    inset -3px -4px 10px color-mix(in srgb, white 30%, transparent),
+    0 0 14px color-mix(in srgb, var(--color-brand) 25%, transparent);
+}
 .review-carousel {
   display: grid;
   grid-template-columns: 1fr 1fr;
