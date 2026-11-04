@@ -1,4 +1,5 @@
 import './style.css';
+import { initReviewStrip } from './review-strip.js';
 
 const opening = document.querySelector('#home');
 const header = document.querySelector('.site-header');
@@ -34,6 +35,8 @@ if (partnerMarquee) {
   partnerMarquee.querySelector('.partner-marquee-content').append(duplicate);
   partnerMarquee.classList.add('is-auto-scrolling');
 }
+
+initReviewStrip(document.querySelector('#reviews .review-carousel'));
 
 if (import.meta.hot) {
   import.meta.hot.dispose(() => {
