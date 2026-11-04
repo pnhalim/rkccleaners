@@ -739,19 +739,6 @@
   outline: 3px solid var(--color-focus);
   outline-offset: 4px;
 }
-.review-bubble-name {
-  position: absolute;
-  top: calc(100% + 0.5rem);
-  left: 50%;
-  /* Follow the bottom edge of the scaled bubble. */
-  translate: -50% calc(var(--bubble) * (var(--scale) - 1) / 2);
-  white-space: nowrap;
-  font-size: 0.875rem;
-  font-weight: 600;
-}
-.review-bubble[aria-expanded='true'] .review-bubble-name {
-  color: var(--color-accent);
-}
 /* Reviews share one cell so the pinned section never changes height. */
 .bubble-reviews {
   display: grid;
@@ -811,7 +798,8 @@
   grid-area: 1 / 1;
   display: grid;
 }
-.scroll-comment {
+/* Review cards are shared by Sketch 2's reviews and Sketch 3's comments. */
+.review-card {
   position: relative;
   width: min(100%, 38rem);
   margin: 0 auto 1.5rem;
@@ -824,8 +812,8 @@
 }
 /* The speech-bubble tail: a border-colored triangle with a white one laid
    over it, offset so the card's border runs around the tail's edges. */
-.scroll-comment::before,
-.scroll-comment::after {
+.review-card::before,
+.review-card::after {
   content: '';
   position: absolute;
   top: 100%;
@@ -833,39 +821,39 @@
   border-top: calc(1.5rem + 2px) solid var(--color-line);
   border-right: calc(1.5rem + 2px) solid transparent;
 }
-.scroll-comment::after {
+.review-card::after {
   top: calc(100% - 1px);
   left: calc(2.5rem + 1px);
   border-top: 1.5rem solid var(--color-surface);
   border-right: 1.5rem solid transparent;
 }
-.scroll-comment-author {
+.review-card-author {
   display: flex;
   align-items: center;
   gap: 0.875rem;
 }
-.scroll-comment-avatar {
+.review-card-avatar {
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
   background: var(--color-page);
 }
-.scroll-comment-author > span {
+.review-card-author > span {
   display: grid;
 }
-.scroll-comment-name {
+.review-card-name {
   font-weight: 600;
 }
-.scroll-comment-role {
+.review-card-role {
   color: var(--color-muted);
   font-size: 0.875rem;
 }
-.scroll-comment-stars {
+.review-card-stars {
   margin-top: 1rem;
   color: var(--color-brand);
   letter-spacing: 0.1em;
 }
-.scroll-comment-text {
+.review-card-text {
   margin-top: 0.5rem;
   font-size: clamp(1.0625rem, 1.6vw, 1.25rem);
   line-height: 1.5;
@@ -885,9 +873,6 @@
   /* Swells past full size and eases back, like a balloon being blown up. */
   .review-bubble-face {
     transition: scale 0.7s cubic-bezier(0.3, 1.8, 0.5, 1);
-  }
-  .review-bubble-name {
-    transition: translate 0.7s cubic-bezier(0.3, 1.8, 0.5, 1);
   }
   .bubble-review {
     transition:

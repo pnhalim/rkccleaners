@@ -17,7 +17,7 @@ const media = gsap.matchMedia();
 
 const commentSection = document.querySelector('#review-scroll');
 const commentList = document.querySelector('.scroll-comments');
-const comments = [...commentList.querySelectorAll('.scroll-comment')];
+const comments = [...commentList.querySelectorAll('.review-card')];
 const showCommentSkips = initSkipBubbles(commentSection);
 
 // Each comment stays up for this many window heights of scrolling.
