@@ -714,19 +714,23 @@
   overflow: hidden;
   scale: var(--scale);
 }
+/* Crops portrait photos toward the face, which usually sits above center. */
 .review-bubble-face img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  object-position: 50% 25%;
 }
-/* Repeats the bubble's shine above the photo so it still reads as a bubble. */
+/* A faint shine above the photo so it still reads as a bubble without
+   washing out the face. */
 .review-bubble-face::after {
   content: '';
   position: absolute;
   inset: 0;
   background: radial-gradient(
-    circle at 30% 24%,
-    rgb(255 255 255 / 85%),
-    transparent 20%
+    circle at 30% 22%,
+    rgb(255 255 255 / 30%),
+    transparent 16%
   );
 }
 .review-bubble[aria-expanded='false']:hover .review-bubble-face {
