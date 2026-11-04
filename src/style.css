@@ -743,6 +743,19 @@
   outline: 3px solid var(--color-focus);
   outline-offset: 4px;
 }
+.review-bubble-name {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 50%;
+  /* Follow the bottom edge of the scaled bubble. */
+  translate: -50% calc(var(--bubble) * (var(--scale) - 1) / 2);
+  white-space: nowrap;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+.review-bubble[aria-expanded='true'] .review-bubble-name {
+  color: var(--color-accent);
+}
 /* Reviews share one cell so the pinned section never changes height. */
 .bubble-reviews {
   display: grid;
@@ -877,6 +890,9 @@
   /* Swells past full size and eases back, like a balloon being blown up. */
   .review-bubble-face {
     transition: scale 0.7s cubic-bezier(0.3, 1.8, 0.5, 1);
+  }
+  .review-bubble-name {
+    transition: translate 0.7s cubic-bezier(0.3, 1.8, 0.5, 1);
   }
   .bubble-review {
     transition:
