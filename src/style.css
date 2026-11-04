@@ -800,30 +800,14 @@
   outline: 3px solid var(--color-focus);
   outline-offset: 4px;
 }
-/* Without motion the comments are a plain list. With it, the frame clips them
-   to a window that the page scroll moves them through while the section is
-   pinned, sized so the pinned section fits on screen. */
-.scroll-comments-frame {
-  margin-top: 2.5rem;
-}
+/* Without motion the comments are a plain list. With it, they share one spot
+   so the pinned section keeps its height while they pop in and out. */
 .scroll-comments {
   display: grid;
   gap: 3rem;
 }
-.scroll-comments-frame.is-clipped {
-  height: min(36rem, 100svh - 20rem);
-  overflow: clip;
-  /* Comments fade into the page at the top and bottom edges. */
-  mask-image: linear-gradient(
-    transparent,
-    #000 2.5rem,
-    #000 calc(100% - 2.5rem),
-    transparent
-  );
-}
-.is-clipped .scroll-comments {
-  gap: 12rem;
-  padding: 2.5rem 0 16rem;
+.scroll-comments.is-stacked > li {
+  grid-area: 1 / 1;
 }
 .scroll-comment {
   max-width: 30rem;

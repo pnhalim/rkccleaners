@@ -16,68 +16,73 @@ const bubblesMedia = initReviewBubbles(
 const media = gsap.matchMedia();
 
 const commentSection = document.querySelector('#review-scroll');
-const commentFrame = document.querySelector('.scroll-comments-frame');
 const commentList = document.querySelector('.scroll-comments');
+const comments = [...commentList.querySelectorAll('.scroll-comment')];
 const showCommentSkips = initSkipBubbles(commentSection);
 
-media.add('(prefers-reduced-motion: no-preference)', () => {
-  commentFrame.classList.add('is-clipped');
-  const comments = [...commentList.children].map((item) => ({
-    item,
-    pop: gsap.from(item.querySelector('.scroll-comment'), {
-      opacity: 0,
-      scale: 0.6,
-      y: 60,
+// Each comment stays up for this many window heights of scrolling.
+const COMMENT_STEP = 2.5;
+const COMMENT_HIDDEN = { opacity: 0, scale: 0.6, y: 60 };
+
+media.add('(prefers-reduced-motion: no-preference)', (context) => {
+  commentList.classList.add('is-stacked');
+  gsap.set(comments, COMMENT_HIDDEN);
+  let shown = -1;
+
+  // Pops the old comment out, then the new one in after a short pause. The
+  // pops play on a timer instead of following the scroll, so a comment is
+  // always fully in or out. Added to the context so reverting clears them.
+  context.add('showComment', (index) => {
+    if (index === shown) return;
+    const previous = comments[shown];
+    shown = index;
+    if (previous) {
+      gsap.to(previous, {
+        ...COMMENT_HIDDEN,
+        duration: 0.25,
+        ease: 'back.in(1.7)',
+        overwrite: true,
+      });
+    }
+    if (index < 0) return;
+    gsap.to(comments[index], {
+      opacity: 1,
+      scale: 1,
+      y: 0,
       duration: 0.5,
       ease: 'back.out(1.7)',
-      paused: true,
-    }),
-  }));
-
-  // A comment shows while it's between 85% and 15% of the way down the
-  // window, and only while the window is on screen, so whichever comment is in
-  // it pops in each time the page brings the box back. Measure the list items,
-  // since the pop moves the comments themselves.
-  function updatePops() {
-    const frame = commentFrame.getBoundingClientRect();
-    const onScreen =
-      frame.top < innerHeight * 0.7 && frame.bottom > innerHeight * 0.3;
-    comments.forEach(({ item, pop }) => {
-      const { top, bottom } = item.getBoundingClientRect();
-      const inWindow =
-        top < frame.top + frame.height * 0.85 &&
-        bottom > frame.top + frame.height * 0.15;
-      onScreen && inWindow ? pop.play() : pop.reverse();
+      delay: previous ? 0.4 : 0,
+      overwrite: true,
     });
-  }
+  });
 
-  // The section holds still while scrolling the page moves the comments up
-  // through the window, at the same speed as the scroll.
-  const travel = () => commentList.offsetHeight - commentFrame.clientHeight;
-  gsap.to(commentList, {
-    y: () => -travel(),
-    ease: 'none',
-    scrollTrigger: {
-      trigger: commentSection,
-      start: 'top top',
-      end: () => `+=${travel()}`,
-      pin: true,
-      anticipatePin: 1,
-      scrub: true,
-      invalidateOnRefresh: true,
-      // Page scrolls move the window on and off screen; this catches the list
-      // moving inside it, after its new position has been applied.
-      onUpdate: updatePops,
-      onToggle: (self) => showCommentSkips(self.isActive),
+  // The section holds still in the middle of the window for one step of
+  // scrolling per comment. Comments show only while it's pinned, so the
+  // current one pops in again whenever the page comes back to it.
+  const stepAt = (self) =>
+    self.isActive
+      ? Math.min(
+          Math.floor(self.progress * comments.length),
+          comments.length - 1,
+        )
+      : -1;
+  ScrollTrigger.create({
+    trigger: commentSection,
+    start: 'center center',
+    end: () => `+=${innerHeight * COMMENT_STEP * comments.length}`,
+    pin: true,
+    anticipatePin: 1,
+    invalidateOnRefresh: true,
+    onUpdate: (self) => context.showComment(stepAt(self)),
+    onToggle: (self) => {
+      context.showComment(stepAt(self));
+      showCommentSkips(self.isActive);
     },
   });
-  addEventListener('scroll', updatePops, { passive: true });
-  updatePops();
 
   return () => {
-    removeEventListener('scroll', updatePops);
     showCommentSkips(false);
-    commentFrame.classList.remove('is-clipped');
+    commentList.classList.remove('is-stacked');
   };
 });
 
