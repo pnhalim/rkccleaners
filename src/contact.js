@@ -1,4 +1,7 @@
 import './style.css';
+import { initHeaderMenu } from './header-menu.js';
+
+initHeaderMenu(document.querySelector('.site-header'));
 
 const form = document.querySelector('#contact-form');
 const status = document.querySelector('#contact-status');
