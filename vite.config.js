@@ -6,7 +6,12 @@ export default defineConfig({
   plugins: [tailwindcss()],
   build: {
     rolldownOptions: {
-      input: ['index.html', 'reviews/index.html'],
+      input: [
+        'index.html',
+        'reviews/index.html',
+        'contact/index.html',
+        'thank-you/index.html',
+      ],
     },
   },
 });
