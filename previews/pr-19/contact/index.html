@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Contact RKC Cleaners about commercial cleaning in the greater Chicago area."
+    />
+    <title>Contact | RKC Cleaners</title>
+    <link rel="icon" type="image/svg+xml" href="/rkccleaners/previews/pr-19/favicon.svg" />
+    <script type="module" crossorigin src="/rkccleaners/previews/pr-19/assets/index-JxpYMtwU.js"></script>
+    <link rel="modulepreload" crossorigin href="/rkccleaners/previews/pr-19/assets/modulepreload-polyfill-P2Xu9kJm.js">
+    <link rel="stylesheet" crossorigin href="/rkccleaners/previews/pr-19/assets/style-CLEpcaAa.css">
+  </head>
+  <body class="bg-page font-body text-ink antialiased">
+    <a
+      class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-10 focus:bg-surface focus:p-3"
+      href="#main"
+      >Skip to content</a
+    >
+    <header
+      class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-6 py-8"
+    >
+      <a class="text-xl font-semibold tracking-tight" href="../"
+        >RKC Cleaners</a
+      >
+      <nav aria-label="Main navigation" class="flex gap-6 text-sm font-medium">
+        <a class="hover:text-brand-hover" href="../reviews/">Reviews</a>
+        <a
+          class="text-brand hover:text-brand-hover"
+          href="./"
+          aria-current="page"
+          >Contact</a
+        >
+      </nav>
+    </header>
+    <main id="main" class="mx-auto max-w-6xl px-6 pb-20">
+      <section class="py-12" aria-labelledby="contact-title">
+        <p
+          class="mb-6 text-sm font-semibold uppercase tracking-widest text-brand"
+        >
+          Contact
+        </p>
+        <h1
+          id="contact-title"
+          class="max-w-3xl font-heading text-5xl font-semibold leading-tight tracking-tight sm:text-7xl"
+        >
+          Let's talk.
+        </h1>
+        <p class="mt-6 max-w-xl text-lg leading-relaxed text-muted">
+          Tell us about your business and what you need cleaned. We'll get back
+          to you soon.
+        </p>
+      </section>
+
+      <!-- Web3Forms access keys are public by design; restrict allowed domains in the Web3Forms dashboard. -->
+      <form
+        id="contact-form"
+        class="grid max-w-xl gap-6"
+        action="https://api.web3forms.com/submit"
+        method="POST"
+      >
+        <input
+          type="hidden"
+          name="access_key"
+          value="7ac83a51-cf1e-44a8-bbcf-2ca913540f2a"
+        />
+        <input
+          type="hidden"
+          name="subject"
+          value="New message from the RKC Cleaners website"
+        />
+        <input type="hidden" name="from_name" value="RKC Cleaners website" />
+        <input
+          type="checkbox"
+          name="botcheck"
+          class="hidden"
+          tabindex="-1"
+          autocomplete="off"
+        />
+
+        <label class="grid gap-2 font-medium">
+          Name
+          <input
+            class="rounded-lg border border-line bg-surface px-4 py-3 font-normal"
+            type="text"
+            name="name"
+            autocomplete="name"
+            required
+          />
+        </label>
+        <label class="grid gap-2 font-medium">
+          Email
+          <input
+            class="rounded-lg border border-line bg-surface px-4 py-3 font-normal"
+            type="email"
+            name="email"
+            autocomplete="email"
+            required
+          />
+        </label>
+        <label class="grid gap-2 font-medium">
+          <span
+            >Phone
+            <span class="text-sm font-normal text-muted">(optional)</span></span
+          >
+          <input
+            class="rounded-lg border border-line bg-surface px-4 py-3 font-normal"
+            type="tel"
+            name="phone"
+            autocomplete="tel"
+          />
+        </label>
+        <label class="grid gap-2 font-medium">
+          Message
+          <textarea
+            class="rounded-lg border border-line bg-surface px-4 py-3 font-normal"
+            name="message"
+            rows="6"
+            required
+          ></textarea>
+        </label>
+
+        <div class="h-captcha" data-captcha="true"></div>
+
+        <button
+          class="justify-self-start rounded-button bg-brand px-8 py-3 font-semibold text-on-brand hover:bg-brand-hover disabled:opacity-60"
+          type="submit"
+        >
+          Send message
+        </button>
+        <p id="contact-status" class="min-h-6" role="status"></p>
+      </form>
+    </main>
+    <footer class="mx-auto max-w-6xl px-6 py-10 text-sm text-muted">
+      RKC Cleaners
+    </footer>
+    <script src="https://web3forms.com/client/script.js" async defer></script>
+  </body>
+</html>

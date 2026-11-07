@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="en">
+  <head><meta name="robots" content="noindex">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.documentElement.classList.add('reduce-motion');
+      } else {
+        document.documentElement.classList.add(
+          'hero-loading',
+          'hero-curtain-open',
+          'hero-overlays',
+        );
+      }
+      setTimeout(() => {
+        document.documentElement.classList.remove(
+          'hero-loading',
+          'hero-curtain-open',
+          'hero-overlays',
+        );
+      }, 12000);
+    </script>
+    <style>.hero-curtain{z-index:5;background:#000;position:fixed;inset:0;transform:translateY(-100%)}html.hero-loading .hero-curtain{transform:translateY(0)}html.hero-loading:not(.reduce-motion) .hero-intro:not(.is-typing){visibility:hidden}</style>
+    <meta
+      name="description"
+      content="Commercial laundry and linen care for Chicago-area businesses. Explore RKC Cleaners and find fresh, dependable care for your linens."
+    />
+    <title>Commercial Laundry in Chicago | RKC Cleaners</title>
+    <link rel="icon" type="image/svg+xml" href="/rkccleaners/previews/pr-19/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" crossorigin src="/rkccleaners/previews/pr-19/assets/index-HWslh6ci.js"></script>
+    <link rel="modulepreload" crossorigin href="/rkccleaners/previews/pr-19/assets/modulepreload-polyfill-P2Xu9kJm.js">
+    <link rel="modulepreload" crossorigin href="/rkccleaners/previews/pr-19/assets/ScrollTrigger-BlKG4UJp.js">
+    <link rel="stylesheet" crossorigin href="/rkccleaners/previews/pr-19/assets/style-CLEpcaAa.css">
+  </head>
+  <body class="landing-page bg-page font-body text-ink antialiased">
+    <div class="hero-curtain" aria-hidden="true">
+      <p class="hero-intro hero-gradient">
+        <span>Great hospitality begins</span>
+        <span>before the welcome.</span>
+      </p>
+    </div>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <main id="main">
+      <section id="home" class="hero" aria-label="Welcome to RKC Cleaners">
+        <header class="site-header">
+          <a class="wordmark" href="#home">RKC<span>CLEANERS</span></a>
+          <button
+            class="header-menu"
+            type="button"
+            aria-expanded="false"
+            aria-controls="primary-navigation"
+          >
+            <span class="header-menu-label">Menu</span>
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              aria-hidden="true"
+            >
+              <path class="menu-icon" d="M4 7h16M4 12h16M4 17h16" />
+              <path class="close-icon" d="m6 6 12 12M18 6 6 18" />
+            </svg>
+          </button>
+          <nav
+            id="primary-navigation"
+            class="header-links"
+            aria-label="Main navigation"
+          >
+            <a class="text-link header-nav" href="#services">Services</a>
+            <a class="text-link header-nav" href="#why-us">About</a>
+            <a class="text-link header-nav" href="reviews/">Reviews</a>
+            <button
+              class="text-link header-nav"
+              type="button"
+              disabled
+              title="Contact details coming soon"
+            >
+              Contact us
+            </button>
+          </nav>
+        </header>
+        <svg
+          class="video-color-filter"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs>
+            <filter id="hero-color-grade" color-interpolation-filters="sRGB">
+              <feColorMatrix
+                type="matrix"
+                values="1 0 0 0 0  0 1 0 0 0  0.18 0.18 0.64 0 0  0 0 0 1 0"
+              />
+            </filter>
+          </defs>
+        </svg>
+        <div class="video-wrap">
+          <section class="about-blurb" aria-labelledby="hero-heading">
+            <div class="hero-identity">
+              <h1 id="hero-heading">RKC <span>Cleaners</span></h1>
+              <p class="hero-service">Commercial laundry &amp; linen care</p>
+            </div>
+            <div class="hero-media">
+              <video
+                class="hero-video"
+                src="/rkccleaners/previews/pr-19/media/rkc-cleaners-loop.mp4"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="auto"
+                aria-hidden="true"
+              ></video>
+              <div class="hero-vignette" aria-hidden="true"></div>
+            </div>
+            <div class="hero-details">
+              <div>
+                <p class="hero-tagline">
+                  Great hospitality begins before the welcome.
+                </p>
+                <p class="hero-eyebrow">Serving Chicago-area businesses</p>
+              </div>
+              <a class="hero-link" href="#services">
+                Explore our services <span aria-hidden="true">↓</span>
+              </a>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section
+        class="content-section"
+        id="services"
+        aria-labelledby="services-title"
+      >
+        <div class="section-inner">
+          <header class="section-heading">
+            <p class="section-eyebrow">What we do</p>
+            <h2 id="services-title">Services</h2>
+            <p>Add a short introduction to your cleaning services here.</p>
+          </header>
+          <div class="services-grid">
+            <article class="service-item">
+              <span class="section-number" aria-hidden="true">01</span>
+              <div>
+                <h3>Service name</h3>
+                <p>Add a brief description of this service.</p>
+              </div>
+            </article>
+            <article class="service-item">
+              <span class="section-number" aria-hidden="true">02</span>
+              <div>
+                <h3>Service name</h3>
+                <p>Add a brief description of this service.</p>
+              </div>
+            </article>
+            <article class="service-item">
+              <span class="section-number" aria-hidden="true">03</span>
+              <div>
+                <h3>Service name</h3>
+                <p>Add a brief description of this service.</p>
+              </div>
+            </article>
+            <article class="service-item">
+              <span class="section-number" aria-hidden="true">04</span>
+              <div>
+                <h3>Service name</h3>
+                <p>Add a brief description of this service.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="content-section partners-section bg-surface"
+        id="partners"
+        aria-labelledby="partners-title"
+      >
+        <div class="section-inner">
+          <header class="section-heading">
+            <p class="section-eyebrow">Who we work with</p>
+            <h2 id="partners-title">Previous partners</h2>
+          </header>
+        </div>
+        <div
+          class="partner-marquee"
+          data-partner-marquee
+          role="region"
+          aria-label="Previous partners"
+          tabindex="0"
+        >
+          <div class="partner-marquee-content">
+            <ul class="partner-strip" aria-label="Previous partners">
+              <li>Partner 01</li>
+              <li>Partner 02</li>
+              <li>Partner 03</li>
+              <li>Partner 04</li>
+              <li>Partner 05</li>
+              <li>Partner 06</li>
+            </ul>
+          </div>
+        </div>
+        <div class="section-inner">
+          <p class="placeholder-note">
+            Replace these placeholders with partner logos or names.
+          </p>
+        </div>
+      </section>
+
+      <section
+        class="content-section"
+        id="reviews"
+        aria-labelledby="reviews-title"
+      >
+        <div class="section-inner">
+          <header class="section-heading">
+            <p class="section-eyebrow">What customers say</p>
+            <h2 id="reviews-title">Reviews</h2>
+          </header>
+          <div class="review-shell">
+            <div class="review-carousel">
+              <button
+                class="strip-arrow strip-prev"
+                type="button"
+                aria-label="Previous reviews"
+                aria-controls="review-strip-list"
+                disabled
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  width="22"
+                  height="22"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="m15 18-6-6 6-6" />
+                </svg>
+              </button>
+              <ul
+                id="review-strip-list"
+                class="review-strip"
+                tabindex="0"
+                aria-labelledby="reviews-title"
+              >
+                <li class="review-card">
+                  <p class="text-brand">
+                    <span aria-hidden="true">★★★★★</span>
+                    <span class="sr-only">Rated 5 out of 5</span>
+                  </p>
+                  <blockquote class="mt-4 grow text-lg leading-relaxed">
+                    Our linens come back crisp, folded and on time. Housekeeping
+                    hasn't had to chase a single delivery.
+                  </blockquote>
+                  <p class="mt-6 font-semibold">Maria L.</p>
+                  <p class="text-sm text-muted">Hotel operations manager</p>
+                </li>
+                <li class="review-card">
+                  <p class="text-brand">
+                    <span aria-hidden="true">★★★★★</span>
+                    <span class="sr-only">Rated 5 out of 5</span>
+                  </p>
+                  <blockquote class="mt-4 grow text-lg leading-relaxed">
+                    They worked around our weekend rush and never missed a
+                    pickup.
+                  </blockquote>
+                  <p class="mt-6 font-semibold">James P.</p>
+                  <p class="text-sm text-muted">Restaurant owner</p>
+                </li>
+                <li class="review-card">
+                  <p class="text-brand">
+                    <span aria-hidden="true">★★★★★</span>
+                    <span class="sr-only">Rated 5 out of 5</span>
+                  </p>
+                  <blockquote class="mt-4 grow text-lg leading-relaxed">
+                    Our uniforms stay looking new for months longer than they
+                    did with our old service.
+                  </blockquote>
+                  <p class="mt-6 font-semibold">Priya S.</p>
+                  <p class="text-sm text-muted">Clinic manager</p>
+                </li>
+                <li class="review-card">
+                  <p class="text-brand">
+                    <span aria-hidden="true">★★★★★</span>
+                    <span class="sr-only">Rated 5 out of 5</span>
+                  </p>
+                  <blockquote class="mt-4 grow text-lg leading-relaxed">
+                    Clear pricing, friendly drivers, and fast answers when we
+                    need extra capacity.
+                  </blockquote>
+                  <p class="mt-6 font-semibold">Tom R.</p>
+                  <p class="text-sm text-muted">Property manager</p>
+                </li>
+                <li class="review-card">
+                  <p class="text-brand">
+                    <span aria-hidden="true">★★★★★</span>
+                    <span class="sr-only">Rated 5 out of 5</span>
+                  </p>
+                  <blockquote class="mt-4 grow text-lg leading-relaxed">
+                    Stains we'd given up on came out. The team clearly takes
+                    care with every piece.
+                  </blockquote>
+                  <p class="mt-6 font-semibold">Elena K.</p>
+                  <p class="text-sm text-muted">Spa director</p>
+                </li>
+                <li class="review-card">
+                  <p class="text-brand">
+                    <span aria-hidden="true">★★★★★</span>
+                    <span class="sr-only">Rated 5 out of 5</span>
+                  </p>
+                  <blockquote class="mt-4 grow text-lg leading-relaxed">
+                    Switching took one phone call. They handled the rest.
+                  </blockquote>
+                  <p class="mt-6 font-semibold">Marcus D.</p>
+                  <p class="text-sm text-muted">Fitness studio owner</p>
+                </li>
+              </ul>
+              <button
+                class="strip-arrow strip-next"
+                type="button"
+                aria-label="Next reviews"
+                aria-controls="review-strip-list"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  width="22"
+                  height="22"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="m9 18 6-6-6-6" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="content-section bg-surface"
+        id="why-us"
+        aria-labelledby="why-us-title"
+      >
+        <div class="section-inner">
+          <header class="section-heading">
+            <p class="section-eyebrow">The RKC difference</p>
+            <h2 id="why-us-title">Why us?</h2>
+            <p>Share what makes working with your team different.</p>
+          </header>
+          <div class="reasons-grid">
+            <article class="reason-card">
+              <span class="section-number" aria-hidden="true">01</span>
+              <h3>Add a reason</h3>
+              <p>Write a short explanation for customers here.</p>
+            </article>
+            <article class="reason-card">
+              <span class="section-number" aria-hidden="true">02</span>
+              <h3>Add a reason</h3>
+              <p>Write a short explanation for customers here.</p>
+            </article>
+            <article class="reason-card">
+              <span class="section-number" aria-hidden="true">03</span>
+              <h3>Add a reason</h3>
+              <p>Write a short explanation for customers here.</p>
+            </article>
+            <article class="reason-card">
+              <span class="section-number" aria-hidden="true">04</span>
+              <h3>Add a reason</h3>
+              <p>Write a short explanation for customers here.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="content-section faq-section"
+        id="faq"
+        aria-labelledby="faq-title"
+      >
+        <div class="section-inner faq-inner">
+          <header class="section-heading">
+            <p class="section-eyebrow">Good to know</p>
+            <h2 id="faq-title">Frequently asked questions</h2>
+          </header>
+          <div class="faq-list">
+            <details>
+              <summary>Add a frequently asked question</summary>
+              <p>Write the answer to this question here.</p>
+            </details>
+            <details>
+              <summary>Add a frequently asked question</summary>
+              <p>Write the answer to this question here.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
