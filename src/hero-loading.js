@@ -89,14 +89,6 @@ function typeHeroIntro(heading) {
 
 typeHeroIntro.stop = () => {};
 
-const SHIMMER_FRAMES = [
-  { backgroundPosition: '0% 20%', easing: 'ease-in-out' },
-  { backgroundPosition: '70% 0%', easing: 'ease-in-out' },
-  { backgroundPosition: '100% 80%', easing: 'ease-in-out' },
-  { backgroundPosition: '30% 100%', easing: 'ease-in-out' },
-  { backgroundPosition: '0% 20%' },
-];
-
 const VIGNETTE_FRAMES = [
   {
     backgroundPosition: '0% 20%, 50% 50%',
@@ -138,11 +130,6 @@ function startHeroMotion(element, frames, options = {}) {
   });
 }
 
-function startHeroShimmer(heading) {
-  heading.style.animation = 'none';
-  startHeroMotion(heading, SHIMMER_FRAMES);
-}
-
 function startHeroVignette(vignette) {
   startHeroMotion(vignette, VIGNETTE_FRAMES);
 }
@@ -160,10 +147,8 @@ function fadeHeroVignette(vignette) {
 
 export function initHeroLoading(video) {
   const root = document.documentElement;
-  const heading = document.querySelector('#hero-heading');
   const intro = document.querySelector('.hero-intro');
   const vignette = document.querySelector('.hero-vignette');
-  if (heading) startHeroShimmer(heading);
   if (vignette) startHeroVignette(vignette);
   if (!root.classList.contains('hero-loading')) return () => {};
 
