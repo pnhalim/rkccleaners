@@ -3,11 +3,46 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.documentElement.classList.add('reduce-motion');
+      } else {
+        document.documentElement.classList.add(
+          'hero-loading',
+          'hero-curtain-open',
+          'hero-overlays',
+        );
+      }
+      setTimeout(() => {
+        document.documentElement.classList.remove(
+          'hero-loading',
+          'hero-curtain-open',
+          'hero-overlays',
+        );
+      }, 12000);
+    </script>
+    <style>
+      .hero-curtain {
+        position: fixed;
+        inset: 0;
+        z-index: 5;
+        background: #000;
+        transform: translateY(-100%);
+      }
+      html.hero-loading .hero-curtain {
+        transform: translateY(0);
+      }
+      html.hero-loading:not(.reduce-motion)
+        .about-blurb
+        h1:not(.is-typing, .has-typed) {
+        visibility: hidden;
+      }
+    </style>
     <meta
       name="description"
-      content="Welcome to RKC Cleaners. Care in every detail."
+      content="Commercial laundry and linen care for Chicago-area businesses. Explore RKC Cleaners and find fresh, dependable care for your linens."
     />
-    <title>RKC Cleaners</title>
+    <title>Commercial Laundry in Chicago | RKC Cleaners</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,23 +52,51 @@
     />
     <script type="module" src="/src/main.js"></script>
   </head>
-  <body class="bg-page font-body text-ink antialiased">
+  <body class="landing-page bg-page font-body text-ink antialiased">
+    <div class="hero-curtain" aria-hidden="true"></div>
     <a class="skip-link" href="#main">Skip to content</a>
     <main id="main">
       <section id="home" class="hero" aria-label="Welcome to RKC Cleaners">
-        <header class="site-header is-at-home">
+        <header class="site-header">
           <a class="wordmark" href="#home">RKC<span>CLEANERS</span></a>
-          <a class="text-link header-action header-reviews" href="reviews/"
-            >Reviews</a
-          >
           <button
-            class="text-link header-action"
+            class="header-menu"
             type="button"
-            disabled
-            title="Contact details coming soon"
+            aria-expanded="false"
+            aria-controls="primary-navigation"
           >
-            Contact us <span aria-hidden="true">↗</span>
+            <span class="header-menu-label">Menu</span>
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              aria-hidden="true"
+            >
+              <path class="menu-icon" d="M4 7h16M4 12h16M4 17h16" />
+              <path class="close-icon" d="m6 6 12 12M18 6 6 18" />
+            </svg>
           </button>
+          <nav
+            id="primary-navigation"
+            class="header-links"
+            aria-label="Main navigation"
+          >
+            <a class="text-link header-nav" href="#services">Services</a>
+            <a class="text-link header-nav" href="#why-us">About</a>
+            <a class="text-link header-nav" href="reviews/">Reviews</a>
+            <button
+              class="text-link header-nav"
+              type="button"
+              disabled
+              title="Contact details coming soon"
+            >
+              Contact us
+            </button>
+          </nav>
         </header>
         <svg
           class="video-color-filter"
@@ -50,29 +113,34 @@
           </defs>
         </svg>
         <div class="video-wrap">
-          <video
-            class="hero-video"
-            src="/media/rkc-cleaners-loop.mp4"
-            autoplay
-            muted
-            loop
-            playsinline
-            preload="auto"
-            aria-hidden="true"
-          ></video>
           <section class="about-blurb" aria-labelledby="hero-heading">
-            <h1 id="hero-heading">
-              <span class="heading-accent">Reliable</span> and
-              <span class="heading-accent">quality</span> service.
+            <h1 id="hero-heading" class="hero-gradient">
+              <span>Great hospitality begins</span>
+              <span>before the welcome.</span>
             </h1>
-            <p>
-              We provide expert cleaning services for your business. Serving the
-              greater Chicago area.
-            </p>
-            <ul class="service-highlights" aria-label="Service highlights">
-              <li><span aria-hidden="true">✓</span> 5–7 business days</li>
-              <li><span aria-hidden="true">✓</span> Medical-grade cleaning</li>
-            </ul>
+            <div class="hero-media">
+              <video
+                class="hero-video"
+                src="/media/rkc-cleaners-loop.mp4"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="auto"
+                aria-hidden="true"
+              ></video>
+              <div class="hero-vignette" aria-hidden="true"></div>
+            </div>
+            <div class="hero-details">
+              <div>
+                <p class="hero-eyebrow">
+                  Commercial laundry &amp; linen care · Chicago
+                </p>
+              </div>
+              <a class="hero-link" href="#services">
+                Explore our services <span aria-hidden="true">↓</span>
+              </a>
+            </div>
           </section>
         </div>
       </section>
@@ -167,9 +235,7 @@
             <p class="section-eyebrow">What customers say</p>
             <h2 id="reviews-title">Reviews</h2>
           </header>
-          <div
-            class="rounded-panel border border-line px-5 py-8 sm:px-8 sm:py-10"
-          >
+          <div class="review-shell">
             <div class="review-carousel">
               <button
                 class="strip-arrow strip-prev"
@@ -198,9 +264,7 @@
                 tabindex="0"
                 aria-labelledby="reviews-title"
               >
-                <li
-                  class="flex flex-col rounded-panel border border-line bg-surface p-8"
-                >
+                <li class="review-card">
                   <p class="text-brand">
                     <span aria-hidden="true">★★★★★</span>
                     <span class="sr-only">Rated 5 out of 5</span>
@@ -212,9 +276,7 @@
                   <p class="mt-6 font-semibold">Maria L.</p>
                   <p class="text-sm text-muted">Hotel operations manager</p>
                 </li>
-                <li
-                  class="flex flex-col rounded-panel border border-line bg-surface p-8"
-                >
+                <li class="review-card">
                   <p class="text-brand">
                     <span aria-hidden="true">★★★★★</span>
                     <span class="sr-only">Rated 5 out of 5</span>
@@ -226,9 +288,7 @@
                   <p class="mt-6 font-semibold">James P.</p>
                   <p class="text-sm text-muted">Restaurant owner</p>
                 </li>
-                <li
-                  class="flex flex-col rounded-panel border border-line bg-surface p-8"
-                >
+                <li class="review-card">
                   <p class="text-brand">
                     <span aria-hidden="true">★★★★★</span>
                     <span class="sr-only">Rated 5 out of 5</span>
@@ -240,9 +300,7 @@
                   <p class="mt-6 font-semibold">Priya S.</p>
                   <p class="text-sm text-muted">Clinic manager</p>
                 </li>
-                <li
-                  class="flex flex-col rounded-panel border border-line bg-surface p-8"
-                >
+                <li class="review-card">
                   <p class="text-brand">
                     <span aria-hidden="true">★★★★★</span>
                     <span class="sr-only">Rated 5 out of 5</span>
@@ -254,9 +312,7 @@
                   <p class="mt-6 font-semibold">Tom R.</p>
                   <p class="text-sm text-muted">Property manager</p>
                 </li>
-                <li
-                  class="flex flex-col rounded-panel border border-line bg-surface p-8"
-                >
+                <li class="review-card">
                   <p class="text-brand">
                     <span aria-hidden="true">★★★★★</span>
                     <span class="sr-only">Rated 5 out of 5</span>
@@ -268,9 +324,7 @@
                   <p class="mt-6 font-semibold">Elena K.</p>
                   <p class="text-sm text-muted">Spa director</p>
                 </li>
-                <li
-                  class="flex flex-col rounded-panel border border-line bg-surface p-8"
-                >
+                <li class="review-card">
                   <p class="text-brand">
                     <span aria-hidden="true">★★★★★</span>
                     <span class="sr-only">Rated 5 out of 5</span>

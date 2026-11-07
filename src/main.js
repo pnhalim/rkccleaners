@@ -1,19 +1,21 @@
 import './style.css';
 import { initReviewStrip } from './review-strip.js';
+import { initHeaderMenu } from './header-menu.js';
+import { initHeroLoading } from './hero-loading.js';
+import { initHeroScroll } from './hero-scroll.js';
 
-const opening = document.querySelector('#home');
-const header = document.querySelector('.site-header');
-const headerObserver = new IntersectionObserver(([entry]) => {
-  header.classList.toggle('is-at-home', entry.isIntersecting);
-});
-headerObserver.observe(opening);
+const cleanupHeaderMenu = initHeaderMenu(
+  document.querySelector('.site-header'),
+);
 
 const heroVideo = document.querySelector('.hero-video');
+const cleanupHeroLoading = initHeroLoading(heroVideo);
+const cleanupHeroScroll = initHeroScroll(document.querySelector('.video-wrap'));
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
 function updateHeroPlayback() {
-  heroVideo.defaultPlaybackRate = 0.85;
-  heroVideo.playbackRate = 0.85;
+  heroVideo.defaultPlaybackRate = 0.75;
+  heroVideo.playbackRate = 0.75;
   heroVideo.autoplay = !reducedMotion.matches;
   if (reducedMotion.matches) {
     heroVideo.pause();
@@ -40,7 +42,9 @@ initReviewStrip(document.querySelector('#reviews .review-carousel'));
 
 if (import.meta.hot) {
   import.meta.hot.dispose(() => {
-    headerObserver.disconnect();
+    cleanupHeaderMenu();
+    cleanupHeroScroll();
+    cleanupHeroLoading();
     reducedMotion.removeEventListener('change', updateHeroPlayback);
   });
 }
