@@ -2,7 +2,7 @@ const TITLE_START_MS = 80;
 const TITLE_CHAR_MS = 32;
 const TITLE_HOLD_MS = 120;
 
-function typeHeroHeading(heading) {
+function typeHeroIntro(heading) {
   const box = heading.getBoundingClientRect();
   const lines = [...heading.children].flatMap((line) => {
     const text = line.firstChild;
@@ -83,11 +83,11 @@ function typeHeroHeading(heading) {
     };
 
     timer = setTimeout(step, TITLE_START_MS);
-    typeHeroHeading.stop = finish;
+    typeHeroIntro.stop = finish;
   });
 }
 
-typeHeroHeading.stop = () => {};
+typeHeroIntro.stop = () => {};
 
 const SHIMMER_FRAMES = [
   { backgroundPosition: '0% 20%', easing: 'ease-in-out' },
@@ -161,6 +161,7 @@ function fadeHeroVignette(vignette) {
 export function initHeroLoading(video) {
   const root = document.documentElement;
   const heading = document.querySelector('#hero-heading');
+  const intro = document.querySelector('.hero-intro');
   const vignette = document.querySelector('.hero-vignette');
   if (heading) startHeroShimmer(heading);
   if (vignette) startHeroVignette(vignette);
@@ -176,7 +177,7 @@ export function initHeroLoading(video) {
     finished = true;
     clearTimeout(timeout);
     clearTimeout(minimumTimeout);
-    typeHeroHeading.stop();
+    typeHeroIntro.stop();
     events.abort();
     const curtain = document.querySelector('.hero-curtain');
     let opened = false;
@@ -191,7 +192,7 @@ export function initHeroLoading(video) {
       });
       document.dispatchEvent(new Event('hero-ready'));
     };
-    // The scroll pin adds a transform that would trap the title under the curtain.
+    // Start the scroll pin only after the curtain finishes rising.
     if (curtain && root.classList.contains('hero-curtain-open')) {
       curtain.addEventListener('transitionend', (event) => {
         if (event.target !== curtain || event.propertyName !== 'transform')
@@ -223,11 +224,11 @@ export function initHeroLoading(video) {
   });
   const fontsReady = Promise.resolve(document.fonts?.ready).catch(() => {});
   const titleReady =
-    reducedMotion.matches || !heading
+    reducedMotion.matches || !intro
       ? Promise.resolve()
       : fontsReady.then(() => {
           if (finished) return;
-          return typeHeroHeading(heading);
+          return typeHeroIntro(intro);
         });
   reducedMotion.addEventListener(
     'change',
