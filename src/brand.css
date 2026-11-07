@@ -2,18 +2,30 @@
   --color-cinema: #000;
   --color-page: #f3f1ed;
   --color-surface: #fff;
-  --color-header-glass: rgb(220 240 255 / 42%);
-  --color-header-glass-expanded: rgb(225 240 255 / 62%);
+  --color-canvas: #f5f7fa;
+  --color-header-glass: rgb(217 228 237 / 42%);
+  --color-header-glass-expanded: rgb(0 0 0 / 45%);
   --color-ink: oklch(21.6% 0.006 56.043);
   --color-muted: oklch(44.4% 0.011 73.639);
   --color-line: oklch(92.3% 0.003 48.717);
-  --color-brand: #b4232c;
-  --color-brand-hover: #921b24;
-  --color-brand-deep: #28191b;
+  --color-logo: #b4232c;
+  --color-logo-hover: #921b24;
+  --color-brand: #526b7c;
+  --color-brand-hover: #3c5263;
+  --color-brand-deep: #23313d;
   --color-on-brand: #fff;
-  --color-on-brand-muted: #fce8e9;
-  --color-accent: #1f5aa6;
-  --color-focus: #b4232c;
+  --color-on-brand-muted: #dfe8ee;
+  --color-accent: #526b7c;
+  --color-focus: #526b7c;
+
+  --color-glass-tint: #c4d5e2;
+  --color-glass-shade: #718b9f;
+  --color-glass-edge: #b7cbdc;
+  --color-hero-glow: #8ebed5;
+  --color-hero-shimmer: #e0edf6;
+  --color-hero-pink: #ead3df;
+  --color-warm-accent: #9c455e;
+  --color-warm-soft: #f2e4eb;
 
   --font-body: 'Outfit', sans-serif;
   --font-heading: var(--font-body);
@@ -22,4 +34,5 @@
   --radius-button: 9999px;
   --radius-panel: 3rem;
   --radius-reason: 2rem;
+  --radius-card: 1.5rem;
 }
