@@ -1,5 +1,5 @@
 import './style.css';
-import { initReviewStrip } from './review-strip.js';
+import { initReviewBubbles } from './review-bubbles.js';
 import { initHeaderMenu } from './header-menu.js';
 import { initHeroLoading } from './hero-loading.js';
 import { initHeroScroll } from './hero-scroll.js';
@@ -38,11 +38,12 @@ if (partnerMarquee) {
   partnerMarquee.classList.add('is-auto-scrolling');
 }
 
-initReviewStrip(document.querySelector('#reviews .review-carousel'));
+const reviewBubbles = initReviewBubbles(document.querySelector('#reviews'));
 
 if (import.meta.hot) {
   import.meta.hot.dispose(() => {
     cleanupHeaderMenu();
+    reviewBubbles.revert();
     cleanupHeroScroll();
     cleanupHeroLoading();
     reducedMotion.removeEventListener('change', updateHeroPlayback);

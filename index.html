@@ -87,7 +87,6 @@
           >
             <a class="text-link header-nav" href="#services">Services</a>
             <a class="text-link header-nav" href="#why-us">About</a>
-            <a class="text-link header-nav" href="reviews/">Reviews</a>
             <a class="text-link header-nav" href="contact/">Contact us</a>
           </nav>
         </header>
@@ -185,6 +184,7 @@
       <section
         class="content-section partners-section bg-surface"
         id="partners"
+        tabindex="-1"
         aria-labelledby="partners-title"
       >
         <div class="section-inner">
@@ -228,135 +228,163 @@
             <p class="section-eyebrow">What customers say</p>
             <h2 id="reviews-title">Reviews</h2>
           </header>
-          <div class="review-shell">
-            <div class="review-carousel">
+          <div
+            class="bubble-layout grid items-center gap-12 md:grid-cols-[24rem_1fr] md:gap-16"
+          >
+            <!-- Placeholder photos from Unsplash (Unsplash License): Jake Nackos, Joseph
+              Gonzalez and Troy Spoelma. Replace with real customers before launch. -->
+            <div class="bubble-field">
               <button
-                class="strip-arrow strip-prev"
+                class="review-bubble"
                 type="button"
-                aria-label="Previous reviews"
-                aria-controls="review-strip-list"
-                disabled
+                aria-expanded="false"
+                aria-controls="bubble-review-angela"
               >
-                <svg
-                  viewBox="0 0 24 24"
-                  width="22"
-                  height="22"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="m15 18-6-6 6-6" />
-                </svg>
+                <span class="review-bubble-face" aria-hidden="true">
+                  <img src="/placeholder-avatars/angela.jpg" alt="" />
+                </span>
+                <span class="review-bubble-name">Angela M.</span>
               </button>
-              <ul
-                id="review-strip-list"
-                class="review-strip"
-                tabindex="0"
-                aria-labelledby="reviews-title"
-              >
-                <li class="review-card">
-                  <p class="text-brand">
-                    <span aria-hidden="true">★★★★★</span>
-                    <span class="sr-only">Rated 5 out of 5</span>
-                  </p>
-                  <blockquote class="mt-4 grow text-lg leading-relaxed">
-                    Our linens come back crisp, folded and on time. Housekeeping
-                    hasn't had to chase a single delivery.
-                  </blockquote>
-                  <p class="mt-6 font-semibold">Maria L.</p>
-                  <p class="text-sm text-muted">Hotel operations manager</p>
-                </li>
-                <li class="review-card">
-                  <p class="text-brand">
-                    <span aria-hidden="true">★★★★★</span>
-                    <span class="sr-only">Rated 5 out of 5</span>
-                  </p>
-                  <blockquote class="mt-4 grow text-lg leading-relaxed">
-                    They worked around our weekend rush and never missed a
-                    pickup.
-                  </blockquote>
-                  <p class="mt-6 font-semibold">James P.</p>
-                  <p class="text-sm text-muted">Restaurant owner</p>
-                </li>
-                <li class="review-card">
-                  <p class="text-brand">
-                    <span aria-hidden="true">★★★★★</span>
-                    <span class="sr-only">Rated 5 out of 5</span>
-                  </p>
-                  <blockquote class="mt-4 grow text-lg leading-relaxed">
-                    Our uniforms stay looking new for months longer than they
-                    did with our old service.
-                  </blockquote>
-                  <p class="mt-6 font-semibold">Priya S.</p>
-                  <p class="text-sm text-muted">Clinic manager</p>
-                </li>
-                <li class="review-card">
-                  <p class="text-brand">
-                    <span aria-hidden="true">★★★★★</span>
-                    <span class="sr-only">Rated 5 out of 5</span>
-                  </p>
-                  <blockquote class="mt-4 grow text-lg leading-relaxed">
-                    Clear pricing, friendly drivers, and fast answers when we
-                    need extra capacity.
-                  </blockquote>
-                  <p class="mt-6 font-semibold">Tom R.</p>
-                  <p class="text-sm text-muted">Property manager</p>
-                </li>
-                <li class="review-card">
-                  <p class="text-brand">
-                    <span aria-hidden="true">★★★★★</span>
-                    <span class="sr-only">Rated 5 out of 5</span>
-                  </p>
-                  <blockquote class="mt-4 grow text-lg leading-relaxed">
-                    Stains we'd given up on came out. The team clearly takes
-                    care with every piece.
-                  </blockquote>
-                  <p class="mt-6 font-semibold">Elena K.</p>
-                  <p class="text-sm text-muted">Spa director</p>
-                </li>
-                <li class="review-card">
-                  <p class="text-brand">
-                    <span aria-hidden="true">★★★★★</span>
-                    <span class="sr-only">Rated 5 out of 5</span>
-                  </p>
-                  <blockquote class="mt-4 grow text-lg leading-relaxed">
-                    Switching took one phone call. They handled the rest.
-                  </blockquote>
-                  <p class="mt-6 font-semibold">Marcus D.</p>
-                  <p class="text-sm text-muted">Fitness studio owner</p>
-                </li>
-              </ul>
               <button
-                class="strip-arrow strip-next"
+                class="review-bubble"
                 type="button"
-                aria-label="Next reviews"
-                aria-controls="review-strip-list"
+                aria-expanded="false"
+                aria-controls="bubble-review-derek"
               >
-                <svg
-                  viewBox="0 0 24 24"
-                  width="22"
-                  height="22"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="m9 18 6-6-6-6" />
-                </svg>
+                <span class="review-bubble-face" aria-hidden="true">
+                  <img src="/placeholder-avatars/derek.jpg" alt="" />
+                </span>
+                <span class="review-bubble-name">Derek W.</span>
               </button>
+              <button
+                class="review-bubble"
+                type="button"
+                aria-expanded="false"
+                aria-controls="bubble-review-sofia"
+              >
+                <span class="review-bubble-face" aria-hidden="true">
+                  <img src="/placeholder-avatars/sofia.jpg" alt="" />
+                </span>
+                <span class="review-bubble-name">Sofia R.</span>
+              </button>
+            </div>
+            <div class="bubble-reviews">
+              <figure
+                id="bubble-review-angela"
+                class="bubble-review review-card"
+                inert
+              >
+                <figcaption class="review-card-author">
+                  <span>
+                    <span class="review-card-name">Angela M.</span>
+                    <span class="review-card-role">Boutique hotel owner</span>
+                  </span>
+                </figcaption>
+                <p class="review-card-stars">
+                  <span aria-hidden="true">★★★★★</span>
+                  <span class="sr-only">Rated 5 out of 5</span>
+                </p>
+                <blockquote class="review-card-text">
+                  RKC treats our towels and sheets like their own. Guests notice
+                  the difference, and so do our reviews.
+                </blockquote>
+              </figure>
+              <figure
+                id="bubble-review-derek"
+                class="bubble-review review-card"
+                inert
+              >
+                <figcaption class="review-card-author">
+                  <span>
+                    <span class="review-card-name">Derek W.</span>
+                    <span class="review-card-role">Banquet hall manager</span>
+                  </span>
+                </figcaption>
+                <p class="review-card-stars">
+                  <span aria-hidden="true">★★★★★</span>
+                  <span class="sr-only">Rated 5 out of 5</span>
+                </p>
+                <blockquote class="review-card-text">
+                  After big events we need tablecloths turned around overnight.
+                  They have never let us down.
+                </blockquote>
+              </figure>
+              <figure
+                id="bubble-review-sofia"
+                class="bubble-review review-card"
+                inert
+              >
+                <figcaption class="review-card-author">
+                  <span>
+                    <span class="review-card-name">Sofia R.</span>
+                    <span class="review-card-role">Salon owner</span>
+                  </span>
+                </figcaption>
+                <p class="review-card-stars">
+                  <span aria-hidden="true">★★★★★</span>
+                  <span class="sr-only">Rated 5 out of 5</span>
+                </p>
+                <blockquote class="review-card-text">
+                  Reliable pickups, fair prices, and real people who answer the
+                  phone.
+                </blockquote>
+              </figure>
             </div>
           </div>
         </div>
       </section>
 
+      <div data-skips-for="reviews">
+        <a
+          class="skip-bubble skip-bubble-up"
+          href="#partners"
+          aria-label="Skip up past the reviews"
+        >
+          <span class="skip-bubble-face">
+            <svg
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M12 19V5" />
+              <path d="m5 12 7-7 7 7" />
+            </svg>
+          </span>
+        </a>
+        <a
+          class="skip-bubble"
+          href="#why-us"
+          aria-label="Skip down past the reviews"
+        >
+          <span class="skip-bubble-face">
+            <svg
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M12 5v14" />
+              <path d="m19 12-7 7-7-7" />
+            </svg>
+          </span>
+        </a>
+      </div>
+
       <section
         class="content-section bg-surface"
         id="why-us"
+        tabindex="-1"
         aria-labelledby="why-us-title"
       >
         <div class="section-inner">
