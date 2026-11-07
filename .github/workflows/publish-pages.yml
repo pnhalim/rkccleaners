@@ -62,7 +62,7 @@ jobs:
                 if (branch.commit.sha !== run.head_sha) return;
               }
             }
-            core.setOutput('url', `https://pnhalim.github.io/rkccleaners/${number && run ? `previews/pr-${number}/` : ''}`);
+            core.setOutput('url', `https://${repo.owner.toLowerCase()}.github.io/${repo.repo}/${number && run ? `previews/pr-${number}/` : ''}`);
             core.setOutput('number', number || '');
             core.setOutput('mode', run ? 'update' : 'remove');
             core.setOutput('publish', 'true');
@@ -117,9 +117,10 @@ jobs:
         env:
           PR_NUMBER: ${{ steps.target.outputs.number }}
           PUBLISH_MODE: ${{ steps.target.outputs.mode }}
+          PREVIEW_URL: ${{ steps.target.outputs.url }}
         run: |
           if [ -n "$PR_NUMBER" ] && [ "$PUBLISH_MODE" = update ]; then
-            echo "Preview: https://pnhalim.github.io/rkccleaners/previews/pr-$PR_NUMBER/" >> "$GITHUB_STEP_SUMMARY"
+            echo "Preview: $PREVIEW_URL" >> "$GITHUB_STEP_SUMMARY"
           fi
       - name: Post reviewer link
         if: steps.target.outputs.publish == 'true' && steps.target.outputs.number != ''
