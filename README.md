@@ -9,7 +9,7 @@ Install [Git](https://git-scm.com/downloads) and Node.js 24 LTS (24.21.0 is pinn
 On macOS or Linux, [nvm](https://github.com/nvm-sh/nvm#installing-and-updating) can install and switch Node versions. Once nvm is installed:
 
 ```sh
-git clone https://github.com/pnhalim/rkccleaners.git
+git clone https://github.com/rkccleaners/rkccleaners.git
 cd rkccleaners
 nvm install
 nvm use
@@ -67,7 +67,7 @@ See [Testing and pull requests](docs/testing-and-prs.md) for the shared test con
 
 ## Deployment
 
-GitHub Pages publishes production at https://pnhalim.github.io/rkccleaners/.
+GitHub Pages publishes production at https://rkccleaners.github.io/rkccleaners/.
 
 - PRs run formatting, deployment tests, and a Vite build. Same-repository PRs get a preview at `/rkccleaners/previews/pr-<number>/`, linked in a bot comment after deployment. Fork PRs only run checks.
 - Pushes to `main` update production while preserving previews. Closing or merging a PR removes its preview.
