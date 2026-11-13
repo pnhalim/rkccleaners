@@ -32,9 +32,7 @@
       html.hero-loading .hero-curtain {
         transform: translateY(0);
       }
-      html.hero-loading:not(.reduce-motion)
-        .about-blurb
-        h1:not(.is-typing, .has-typed) {
+      html.hero-loading:not(.reduce-motion) .hero-intro:not(.is-typing) {
         visibility: hidden;
       }
     </style>
@@ -53,7 +51,12 @@
     <script type="module" src="/src/main.js"></script>
   </head>
   <body class="landing-page bg-page font-body text-ink antialiased">
-    <div class="hero-curtain" aria-hidden="true"></div>
+    <div class="hero-curtain" aria-hidden="true">
+      <p class="hero-intro hero-gradient">
+        <span>Great hospitality begins</span>
+        <span>before the welcome.</span>
+      </p>
+    </div>
     <a class="skip-link" href="#main">Skip to content</a>
     <main id="main">
       <section id="home" class="hero" aria-label="Welcome to RKC Cleaners">
@@ -106,10 +109,10 @@
         </svg>
         <div class="video-wrap">
           <section class="about-blurb" aria-labelledby="hero-heading">
-            <h1 id="hero-heading" class="hero-gradient">
-              <span>Great hospitality begins</span>
-              <span>before the welcome.</span>
-            </h1>
+            <div class="hero-identity">
+              <h1 id="hero-heading">RKC <span>Cleaners</span></h1>
+              <p class="hero-service">Commercial laundry &amp; linen care</p>
+            </div>
             <div class="hero-media">
               <video
                 class="hero-video"
@@ -125,9 +128,10 @@
             </div>
             <div class="hero-details">
               <div>
-                <p class="hero-eyebrow">
-                  Commercial laundry &amp; linen care · Chicago
+                <p class="hero-tagline">
+                  Great hospitality begins before the welcome.
                 </p>
+                <p class="hero-eyebrow">Serving Chicago-area businesses</p>
               </div>
               <a class="hero-link" href="#services">
                 Explore our services <span aria-hidden="true">↓</span>

@@ -162,12 +162,29 @@
   font-size: clamp(12px, 1vw, 15px);
   font-weight: 600;
 }
-.about-blurb h1 {
+.hero-identity {
+  align-self: center;
+  padding-inline: 24px;
+}
+.hero-service {
+  margin: 24px 0 0;
+  font-size: clamp(16px, 2vw, 26px);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+.hero-tagline {
+  margin: 0 0 8px;
   font-family: var(--font-editorial);
-  font-weight: 400;
-  letter-spacing: -0.045em;
-  line-height: 1.04;
-  font-size: clamp(38px, 6.5vw, 92px);
+  font-size: clamp(18px, 2vw, 26px);
+  line-height: 1.25;
+}
+.about-blurb h1 {
+  color: var(--color-on-brand);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1;
+  font-size: clamp(72px, min(11vw, 18svh), 160px);
   width: min(960px, 100% - 48px);
   align-self: center;
   margin: 0 auto;
@@ -197,10 +214,6 @@
   .hero-gradient {
     animation: 24s ease-in-out infinite hero-shimmer;
   }
-  /* The scroll pin restarts a CSS animation on these layers. */
-  #hero-heading {
-    animation: none;
-  }
 }
 @keyframes hero-shimmer {
   0%,
@@ -227,6 +240,12 @@
 }
 .about-blurb h1 > span {
   display: block;
+  margin-top: 0.45em;
+  padding-left: 0.22em;
+  font-size: 0.32em;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
 }
 .hero-link {
   flex-shrink: 0;
@@ -1294,7 +1313,11 @@
     gap: 0;
   }
   .landing-page .about-blurb h1 {
-    font-size: clamp(30px, 8.5vw, 48px);
+    font-size: clamp(64px, 20vw, 100px);
+  }
+  .landing-page .hero-service {
+    margin-top: 16px;
+    font-size: 16px;
   }
   .landing-page .hero-details {
     padding: 16px 20px max(16px, env(safe-area-inset-bottom));
@@ -1331,7 +1354,7 @@
     padding-top: 88px;
   }
   .landing-page .about-blurb h1 {
-    font-size: clamp(30px, min(6.5vw, 12svh), 64px);
+    font-size: clamp(48px, min(10vw, 17svh), 92px);
   }
   .landing-page .hero-details {
     padding-block: 12px;
@@ -1421,19 +1444,22 @@ html.hero-loading .hero-curtain {
   pointer-events: auto;
   transform: translateY(0);
 }
-html.hero-curtain-open .hero {
-  overflow: visible;
+.hero-intro {
+  color: var(--color-on-brand);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(960px, 100% - 48px);
+  margin: 0;
+  text-align: center;
+  font-family: var(--font-editorial);
+  font-size: clamp(30px, 6.5vw, 92px);
+  line-height: 1.04;
+  letter-spacing: -0.045em;
 }
-html.hero-curtain-open .about-blurb {
-  z-index: auto;
-  background: transparent;
-}
-html.hero-curtain-open .hero-media {
-  z-index: 1;
-}
-html.hero-curtain-open .about-blurb h1 {
-  position: relative;
-  z-index: 6;
+.hero-intro > span {
+  display: block;
 }
 html.hero-overlays .hero-vignette,
 html.hero-overlays .hero-details,
@@ -1444,9 +1470,7 @@ html.hero-overlays .hero-details,
 html.hero-overlays .site-header {
   pointer-events: none;
 }
-html.hero-loading:not(.reduce-motion)
-  .about-blurb
-  h1:not(.is-typing, .has-typed) {
+html.hero-loading:not(.reduce-motion) .hero-intro:not(.is-typing) {
   visibility: hidden;
 }
 @media (prefers-reduced-motion: no-preference) {
